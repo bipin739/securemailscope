@@ -1,0 +1,2152 @@
+{
+  "fix_first": {
+    "type": "RULE",
+    "label": "Heuristic prioritisation, not a calibrated risk score",
+    "weights": {
+      "severity": 81,
+      "affected_sessions": 9,
+      "anomaly_tiebreak": 1
+    },
+    "severity_values": {
+      "CRITICAL": 5,
+      "HIGH": 4,
+      "MEDIUM": 3,
+      "LOW": 2,
+      "INFO": 1
+    },
+    "anomaly_population": 8,
+    "anomaly_status": "ANALYZED",
+    "formula": "severity value × severity weight + affected sessions × session weight + anomaly points (population − rank + 1; zero when unavailable). Weights ensure strict severity, then session-count precedence.",
+    "rows": [
+      {
+        "type": "RULE",
+        "rule_id": "SMS-AUTH-001",
+        "title": "Authentication Before TLS",
+        "severity": "CRITICAL",
+        "finding_ids": [
+          "FIND-SMS-AUTH-001-6"
+        ],
+        "connection_ids": [
+          "conn-real-6"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.7"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": 1,
+        "ordering_points": 422,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "CRITICAL",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "RULE",
+            "field": "anomaly_rank",
+            "value": 1,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 1
+      },
+      {
+        "type": "RULE",
+        "rule_id": "SMS-STARTTLS-001",
+        "title": "STARTTLS Available But Not Used",
+        "severity": "HIGH",
+        "finding_ids": [
+          "FIND-SMS-STARTTLS-001-6"
+        ],
+        "connection_ids": [
+          "conn-real-6"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.7"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": 1,
+        "ordering_points": 341,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "HIGH",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "RULE",
+            "field": "anomaly_rank",
+            "value": 1,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 2
+      },
+      {
+        "type": "RULE",
+        "rule_id": "SMS-TLS-001",
+        "title": "Cleartext Email Transport",
+        "severity": "HIGH",
+        "finding_ids": [
+          "FIND-SMS-TLS-001-6"
+        ],
+        "connection_ids": [
+          "conn-real-6"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.7"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": 1,
+        "ordering_points": 341,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "HIGH",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "RULE",
+            "field": "anomaly_rank",
+            "value": 1,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 3
+      },
+      {
+        "type": "RULE",
+        "rule_id": "SMS-CIPHER-001",
+        "title": "Weak / Deprecated Cipher Suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)",
+        "severity": "HIGH",
+        "finding_ids": [
+          "FIND-SMS-CIPHER-001-7"
+        ],
+        "connection_ids": [
+          "conn-real-7"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.8"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": 2,
+        "ordering_points": 340,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "HIGH",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "RULE",
+            "field": "anomaly_rank",
+            "value": 2,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 4
+      },
+      {
+        "type": "RULE",
+        "rule_id": "SMS-TLSVER-001",
+        "title": "Deprecated TLS Version (TLS 1.0)",
+        "severity": "HIGH",
+        "finding_ids": [
+          "FIND-SMS-TLSVER-001-7"
+        ],
+        "connection_ids": [
+          "conn-real-7"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.8"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": 2,
+        "ordering_points": 340,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "HIGH",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "RULE",
+            "field": "anomaly_rank",
+            "value": 2,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 5
+      },
+      {
+        "type": "RULE",
+        "rule_id": "SMS-PFS-001",
+        "title": "Static Key Exchange Without Forward Secrecy",
+        "severity": "MEDIUM",
+        "finding_ids": [
+          "FIND-SMS-PFS-001-7"
+        ],
+        "connection_ids": [
+          "conn-real-7"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.8"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": 2,
+        "ordering_points": 259,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "MEDIUM",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "RULE",
+            "field": "anomaly_rank",
+            "value": 2,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 6
+      }
+    ]
+  },
+  "capture_origin": "SYNTHETIC_LAB",
+  "session_evidence": [
+    {
+      "id": "conn-real-0",
+      "source_node_id": "node-192-0-2-1",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.1)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "IMAP",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "security_status": "WARNING",
+      "session_id": "IMAP-STREAM-0",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": "29",
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": "29",
+        "frame": "6",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "OBSERVED",
+        "classification": "CLASSICAL_OBSERVED",
+        "group_name": "x25519",
+        "label": "Classical key exchange observed",
+        "detail": "May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "f146948b4a599d4d7ddf071b74696983",
+          "type": "OBSERVED",
+          "frame": "4",
+          "supported_tls_versions": [
+            "TLS 1.3"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "supported_versions",
+          "offered_cipher_suites": [
+            "TLS_AES_128_GCM_SHA256",
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_CHACHA20_POLY1305_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e",
+            "0x0100",
+            "0x0101",
+            "0x0102",
+            "0x0103",
+            "0x0104"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "6",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured IMAP session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 0: 192.0.2.1:49001 -> 198.51.100.25:993 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "IMAP-STREAM-0",
+        "handshake_record": "TCP Stream 0 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x1302",
+        "protocol_version_hex": "0x0304",
+        "ports": "49001 -> 993",
+        "packet_count": 15
+      }
+    },
+    {
+      "id": "conn-real-1",
+      "source_node_id": "node-192-0-2-2",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.2)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "POP3",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "security_status": "WARNING",
+      "session_id": "POP3-STREAM-1",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": "29",
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": "29",
+        "frame": "21",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "OBSERVED",
+        "classification": "CLASSICAL_OBSERVED",
+        "group_name": "x25519",
+        "label": "Classical key exchange observed",
+        "detail": "May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "f146948b4a599d4d7ddf071b74696983",
+          "type": "OBSERVED",
+          "frame": "19",
+          "supported_tls_versions": [
+            "TLS 1.3"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "supported_versions",
+          "offered_cipher_suites": [
+            "TLS_AES_128_GCM_SHA256",
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_CHACHA20_POLY1305_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e",
+            "0x0100",
+            "0x0101",
+            "0x0102",
+            "0x0103",
+            "0x0104"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "21",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured POP3 session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 1: 192.0.2.2:49002 -> 198.51.100.25:995 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "POP3-STREAM-1",
+        "handshake_record": "TCP Stream 1 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x1302",
+        "protocol_version_hex": "0x0304",
+        "ports": "49002 -> 995",
+        "packet_count": 15
+      }
+    },
+    {
+      "id": "conn-real-2",
+      "source_node_id": "node-192-0-2-3",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.3)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "SMTP",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "security_status": "WARNING",
+      "session_id": "SMTP-STREAM-2",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": "29",
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": "29",
+        "frame": "36",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "OBSERVED",
+        "classification": "CLASSICAL_OBSERVED",
+        "group_name": "x25519",
+        "label": "Classical key exchange observed",
+        "detail": "May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "f146948b4a599d4d7ddf071b74696983",
+          "type": "OBSERVED",
+          "frame": "34",
+          "supported_tls_versions": [
+            "TLS 1.3"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "supported_versions",
+          "offered_cipher_suites": [
+            "TLS_AES_128_GCM_SHA256",
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_CHACHA20_POLY1305_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e",
+            "0x0100",
+            "0x0101",
+            "0x0102",
+            "0x0103",
+            "0x0104"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "36",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured SMTP session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 2: 192.0.2.3:49003 -> 198.51.100.25:465 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "SMTP-STREAM-2",
+        "handshake_record": "TCP Stream 2 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x1302",
+        "protocol_version_hex": "0x0304",
+        "ports": "49003 -> 465",
+        "packet_count": 15
+      }
+    },
+    {
+      "id": "conn-real-3",
+      "source_node_id": "node-192-0-2-4",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.4)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "IMAP",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "security_status": "WARNING",
+      "session_id": "IMAP-STREAM-3",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": "29",
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": "29",
+        "frame": "51",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "OBSERVED",
+        "classification": "CLASSICAL_OBSERVED",
+        "group_name": "x25519",
+        "label": "Classical key exchange observed",
+        "detail": "May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "f146948b4a599d4d7ddf071b74696983",
+          "type": "OBSERVED",
+          "frame": "49",
+          "supported_tls_versions": [
+            "TLS 1.3"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "supported_versions",
+          "offered_cipher_suites": [
+            "TLS_AES_128_GCM_SHA256",
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_CHACHA20_POLY1305_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e",
+            "0x0100",
+            "0x0101",
+            "0x0102",
+            "0x0103",
+            "0x0104"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "51",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured IMAP session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 3: 192.0.2.4:49004 -> 198.51.100.25:993 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "IMAP-STREAM-3",
+        "handshake_record": "TCP Stream 3 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x1302",
+        "protocol_version_hex": "0x0304",
+        "ports": "49004 -> 993",
+        "packet_count": 15
+      }
+    },
+    {
+      "id": "conn-real-4",
+      "source_node_id": "node-192-0-2-5",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.5)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "POP3",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "security_status": "WARNING",
+      "session_id": "POP3-STREAM-4",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": "29",
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": "29",
+        "frame": "66",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "OBSERVED",
+        "classification": "CLASSICAL_OBSERVED",
+        "group_name": "x25519",
+        "label": "Classical key exchange observed",
+        "detail": "May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "f146948b4a599d4d7ddf071b74696983",
+          "type": "OBSERVED",
+          "frame": "64",
+          "supported_tls_versions": [
+            "TLS 1.3"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "supported_versions",
+          "offered_cipher_suites": [
+            "TLS_AES_128_GCM_SHA256",
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_CHACHA20_POLY1305_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e",
+            "0x0100",
+            "0x0101",
+            "0x0102",
+            "0x0103",
+            "0x0104"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "66",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured POP3 session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 4: 192.0.2.5:49005 -> 198.51.100.25:995 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "POP3-STREAM-4",
+        "handshake_record": "TCP Stream 4 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x1302",
+        "protocol_version_hex": "0x0304",
+        "ports": "49005 -> 995",
+        "packet_count": 15
+      }
+    },
+    {
+      "id": "conn-real-5",
+      "source_node_id": "node-192-0-2-6",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.6)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "SMTP",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "security_status": "WARNING",
+      "session_id": "SMTP-STREAM-5",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": "29",
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": "29",
+        "frame": "81",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "OBSERVED",
+        "classification": "CLASSICAL_OBSERVED",
+        "group_name": "x25519",
+        "label": "Classical key exchange observed",
+        "detail": "May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "f146948b4a599d4d7ddf071b74696983",
+          "type": "OBSERVED",
+          "frame": "79",
+          "supported_tls_versions": [
+            "TLS 1.3"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "supported_versions",
+          "offered_cipher_suites": [
+            "TLS_AES_128_GCM_SHA256",
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_CHACHA20_POLY1305_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e",
+            "0x0100",
+            "0x0101",
+            "0x0102",
+            "0x0103",
+            "0x0104"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "81",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured SMTP session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 5: 192.0.2.6:49006 -> 198.51.100.25:465 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "SMTP-STREAM-5",
+        "handshake_record": "TCP Stream 5 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x1302",
+        "protocol_version_hex": "0x0304",
+        "ports": "49006 -> 465",
+        "packet_count": 15
+      }
+    },
+    {
+      "id": "conn-real-6",
+      "source_node_id": "node-192-0-2-7",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.7)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "SMTP",
+      "transport_mode": "CLEARTEXT (STARTTLS Offered but Not Used)",
+      "tls_version": "None",
+      "cipher_suite": "NONE (Unencrypted / Plaintext)",
+      "security_status": "CRITICAL",
+      "session_id": "SMTP-STREAM-6",
+      "has_pfs": false,
+      "has_aead": false,
+      "starttls_advertised": true,
+      "starttls_used": false,
+      "auth_observed": true,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": null,
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": null,
+        "frame": null,
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "COVERAGE_GAP",
+        "classification": "UNKNOWN",
+        "group_name": null,
+        "label": "Quantum readiness: UNKNOWN",
+        "detail": "A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced."
+      },
+      "client_hello_offers": [],
+      "certificates": [],
+      "server_hello_frame": null,
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": true,
+      "explanation": {
+        "headline": "Encryption was available, but session continued without upgrading to TLS",
+        "summary": "The mail server (198.51.100.25) advertised STARTTLS in the EHLO response, but the client did not issue STARTTLS. The session continued unencrypted.",
+        "why_it_matters": "Transport encryption was offered by the server, but was not utilized by the client. All message transit and metadata remained in cleartext on the wire.",
+        "evidence_summary": "Stream 6: 192.0.2.7:49007 -> 198.51.100.25:587 (17 packets, STARTTLS Advertised: YES, STARTTLS Used: NO)",
+        "recommended_action": "Configure the mail client or transfer agent to enforce mandatory TLS (reject plaintext delivery when STARTTLS capability is signaled)."
+      },
+      "evidence": {
+        "session_id": "SMTP-STREAM-6",
+        "handshake_record": "TCP Stream 6 (CLEARTEXT (STARTTLS Offered but Not Used))",
+        "cipher_suite_hex": null,
+        "protocol_version_hex": null,
+        "ports": "49007 -> 587",
+        "packet_count": 17
+      }
+    },
+    {
+      "id": "conn-real-7",
+      "source_node_id": "node-192-0-2-8",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.8)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "SMTP",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.0",
+      "cipher_suite": "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
+      "security_status": "CRITICAL",
+      "session_id": "SMTP-STREAM-7",
+      "has_pfs": false,
+      "has_aead": false,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": null,
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": null,
+        "frame": "113",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "COVERAGE_GAP",
+        "classification": "UNKNOWN",
+        "group_name": null,
+        "label": "Quantum readiness: UNKNOWN",
+        "detail": "A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "d1f47f694f10b1faf653048918492609",
+          "type": "OBSERVED",
+          "frame": "111",
+          "supported_tls_versions": [
+            "TLS 1.2"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "legacy maximum version",
+          "offered_cipher_suites": [
+            "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e"
+          ]
+        }
+      ],
+      "certificates": [],
+      "server_hello_frame": "113",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Legacy Transport Protocol Detected (TLS 1.0)",
+        "summary": "Observed SMTP session negotiated obsolete TLS 1.0 with cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA.",
+        "why_it_matters": "Legacy protocol TLS 1.0 lacks authenticated encryption (AEAD) and is vulnerable to downgrade and cryptanalysis.",
+        "evidence_summary": "Stream 7: 192.0.2.8:49008 -> 198.51.100.25:465 (9 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Disable TLS 1.0 on 198.51.100.25 and mandate TLS 1.2 or TLS 1.3."
+      },
+      "evidence": {
+        "session_id": "SMTP-STREAM-7",
+        "handshake_record": "TCP Stream 7 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0x000a",
+        "protocol_version_hex": "0x0301",
+        "ports": "49008 -> 465",
+        "packet_count": 9
+      }
+    }
+  ],
+  "report_metadata": {
+    "report_id": "RPT-3c44bfb369ac",
+    "investigation_id": "CAP-3c44bfb369ac",
+    "generated_at": "2026-10-05T13:52:45Z",
+    "engine_name": "SecureMailScope Analysis & Reporting Engine",
+    "engine_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "data_source": "REAL_CAPTURE",
+    "is_simulated": false
+  },
+  "executive_summary": {
+    "headline": "Critical Security Posture Identified Across 8 Transport Sessions",
+    "overall_posture": "CRITICAL",
+    "posture_summary": "The investigation identified a CRITICAL security posture. High-risk cryptographic weaknesses or cleartext credential transmission were observed during transport-layer evaluation.",
+    "key_findings_summary": "The primary drivers of this assessment were: authentication occurred before TLS protection was established; STARTTLS was advertised by the server but was not negotiated by the client; deprecated TLS protocols (TLS 1.0/1.1) were negotiated; legacy or non-AEAD cipher suites were utilized.",
+    "transport_security_summary": "SecureMailScope analyzed 8 observed POP3/IMAP/SMTP transport session(s) from capture 'lab-mixed-fleet.pcap'. 0 session(s) passed all assessed baseline checks, 6 required review, and 2 had critical transport risks.",
+    "ai_anomaly_summary": "AI-assisted anomaly prioritization evaluated 8 observed client profiles across 14 transport dimensions. 2 client(s) were prioritized for analyst attention based on relative statistical divergence.",
+    "full_text": "SecureMailScope analyzed 8 observed POP3/IMAP/SMTP transport session(s) from capture 'lab-mixed-fleet.pcap'. 0 session(s) passed all assessed baseline checks, 6 required review, and 2 had critical transport risks.\n\nThe investigation identified a CRITICAL security posture. High-risk cryptographic weaknesses or cleartext credential transmission were observed during transport-layer evaluation. The primary drivers of this assessment were: authentication occurred before TLS protection was established; STARTTLS was advertised by the server but was not negotiated by the client; deprecated TLS protocols (TLS 1.0/1.1) were negotiated; legacy or non-AEAD cipher suites were utilized.\n\nAI-assisted anomaly prioritization evaluated 8 observed client profiles across 14 transport dimensions. 2 client(s) were prioritized for analyst attention based on relative statistical divergence."
+  },
+  "capture_summary": {
+    "filename": "lab-mixed-fleet.pcap",
+    "capture_sha256": "3c44bfb369ac295fbe5c37cdfd1263652b8aa88582a00da4d48497d32cfbb6a6",
+    "capture_sha256_short": "3c44bfb369ac",
+    "capture_date": "2026-10-04T12:00:00+00:00",
+    "total_sessions": 8,
+    "secure_sessions": 0,
+    "warning_sessions": 6,
+    "critical_sessions": 2,
+    "observed_clients_count": 8,
+    "protocols_observed": [
+      "POP3",
+      "IMAP",
+      "SMTP"
+    ]
+  },
+  "security_posture": {
+    "status": "CRITICAL",
+    "findings_count": 25,
+    "critical_count": 1,
+    "high_count": 4,
+    "medium_count": 1,
+    "low_count": 0,
+    "info_count": 19,
+    "passed_checks": 12,
+    "coverage_gaps": 7
+  },
+  "deterministic_findings": [
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.3)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.1 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "why_it_matters": "TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.3.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.3",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.3."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-0",
+      "related_session_id": "IMAP-STREAM-0",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.1 → 198.51.100.25",
+      "plain_explanation": "The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "TLS 1.3 ServerHello key_share observed: 29.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS ServerHello key_share",
+          "description": "TLS 1.3 ServerHello key_share observed: 29."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-0",
+      "related_session_id": "IMAP-STREAM-0",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.1 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-0",
+      "related_session_id": "IMAP-STREAM-0",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.3)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.2 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "why_it_matters": "TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.3.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.3",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.3."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-1",
+      "related_session_id": "POP3-STREAM-1",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.2 → 198.51.100.25",
+      "plain_explanation": "The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "TLS 1.3 ServerHello key_share observed: 29.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS ServerHello key_share",
+          "description": "TLS 1.3 ServerHello key_share observed: 29."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-1",
+      "related_session_id": "POP3-STREAM-1",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.2 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-1",
+      "related_session_id": "POP3-STREAM-1",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.3)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.3 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "why_it_matters": "TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.3.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.3",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.3."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-2",
+      "related_session_id": "SMTP-STREAM-2",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.3 → 198.51.100.25",
+      "plain_explanation": "The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "TLS 1.3 ServerHello key_share observed: 29.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS ServerHello key_share",
+          "description": "TLS 1.3 ServerHello key_share observed: 29."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-2",
+      "related_session_id": "SMTP-STREAM-2",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.3 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-2",
+      "related_session_id": "SMTP-STREAM-2",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.3)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.4 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "why_it_matters": "TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.3.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.3",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.3."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-3",
+      "related_session_id": "IMAP-STREAM-3",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.4 → 198.51.100.25",
+      "plain_explanation": "The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "TLS 1.3 ServerHello key_share observed: 29.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS ServerHello key_share",
+          "description": "TLS 1.3 ServerHello key_share observed: 29."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-3",
+      "related_session_id": "IMAP-STREAM-3",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.4 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-3",
+      "related_session_id": "IMAP-STREAM-3",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.3)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.5 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "why_it_matters": "TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.3.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.3",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.3."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-4",
+      "related_session_id": "POP3-STREAM-4",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.5 → 198.51.100.25",
+      "plain_explanation": "The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "TLS 1.3 ServerHello key_share observed: 29.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS ServerHello key_share",
+          "description": "TLS 1.3 ServerHello key_share observed: 29."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-4",
+      "related_session_id": "POP3-STREAM-4",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.5 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-4",
+      "related_session_id": "POP3-STREAM-4",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.3)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.6 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "why_it_matters": "TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.3.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.3",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.3."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-5",
+      "related_session_id": "SMTP-STREAM-5",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.6 → 198.51.100.25",
+      "plain_explanation": "The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "TLS 1.3 ServerHello key_share observed: 29.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS ServerHello key_share",
+          "description": "TLS 1.3 ServerHello key_share observed: 29."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-5",
+      "related_session_id": "SMTP-STREAM-5",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.6 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-5",
+      "related_session_id": "SMTP-STREAM-5",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Identify whether the endpoint is client submission, mailbox access, or Internet SMTP relay.",
+          "Require TLS on authenticated submission and mailbox access; test all clients before rollout. Do not blindly require TLS on public port 25, which can reject legitimate mail.",
+          "Capture a fresh session and verify the upgrade before authentication."
+        ],
+        "snippet": {
+          "software": "Postfix 3.6+ (smtpd)",
+          "scope": "Example parameter values for authenticated submission only. Translate to per-service master.cf overrides where appropriate. Requires a working TLS certificate/key. Do not apply globally to a public port-25 relay.",
+          "warning": "Review and test before applying",
+          "config": "smtpd_tls_security_level = encrypt\nsmtpd_tls_auth_only = yes"
+        }
+      },
+      "rule_id": "SMS-TLS-001",
+      "title": "Cleartext Email Transport",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "confidence": "HIGH",
+      "category": "Transport Encryption",
+      "location": "192.0.2.7 → 198.51.100.25",
+      "plain_explanation": "This email session continued without TLS protection, allowing application-layer traffic to traverse the observed network path without transport encryption.",
+      "why_it_matters": "Cleartext email transport exposes message metadata, routing headers, and session contents to passive eavesdropping and traffic manipulation along the transit path.",
+      "evidence": "Identified SMTP session on port 587.; No TLS encryption handshake was negotiated for this session.; Session operated in CLEARTEXT (STARTTLS Offered but Not Used) mode.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "protocol",
+          "value": "SMTP",
+          "source": "SMTP Stream Analysis",
+          "description": "Identified SMTP session on port 587."
+        },
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "None",
+          "source": "TCP Stream",
+          "description": "No TLS encryption handshake was negotiated for this session."
+        },
+        {
+          "type": "OBSERVED",
+          "field": "transport_mode",
+          "value": "CLEARTEXT (STARTTLS Offered but Not Used)",
+          "source": "Transport Analysis",
+          "description": "Session operated in CLEARTEXT (STARTTLS Offered but Not Used) mode."
+        }
+      ],
+      "recommendation": "Enforce TLS encryption for all email communications using Direct TLS (e.g. port 465/993/995) or mandatory STARTTLS with strict rejection of unencrypted fallbacks.",
+      "references": [
+        "RFC 8314",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-6",
+      "related_session_id": "SMTP-STREAM-6",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Configure the affected client to require STARTTLS or the correct implicit-TLS port.",
+          "For authenticated submission, reject plaintext fallback after testing clients. Treat public relay policy separately.",
+          "Capture again and check the server selection and authentication order."
+        ],
+        "snippet": {
+          "software": "Postfix 3.6+ (smtpd)",
+          "scope": "Example parameter values for authenticated submission only. Translate to per-service master.cf overrides where appropriate. Requires a working TLS certificate/key. Do not apply globally to a public port-25 relay.",
+          "warning": "Review and test before applying",
+          "config": "smtpd_tls_security_level = encrypt\nsmtpd_tls_auth_only = yes"
+        }
+      },
+      "rule_id": "SMS-STARTTLS-001",
+      "title": "STARTTLS Available But Not Used",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "confidence": "HIGH",
+      "category": "Opportunistic Encryption",
+      "location": "192.0.2.7 → 198.51.100.25",
+      "plain_explanation": "The server advertised STARTTLS, but the client continued the SMTP session without upgrading to TLS.",
+      "why_it_matters": "Transport encryption was available from the server, but the client did not initiate an upgrade. Without mandatory TLS enforcement, the session continued unprotected over cleartext.",
+      "evidence": "Server advertised STARTTLS capability.; No STARTTLS command or TLS handshake was observed.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "starttls_advertised",
+          "value": true,
+          "source": "SMTP EHLO/Greeting Response",
+          "description": "Server advertised STARTTLS capability."
+        },
+        {
+          "type": "OBSERVED",
+          "field": "starttls_used",
+          "value": false,
+          "source": "TCP Stream",
+          "description": "No STARTTLS command or TLS handshake was observed."
+        }
+      ],
+      "recommendation": "Configure the client and server policy to require TLS for this mail flow and reject insecure fallback where operationally appropriate.",
+      "references": [
+        "RFC 3207",
+        "RFC 8314"
+      ],
+      "affected_connection_id": "conn-real-6",
+      "related_session_id": "SMTP-STREAM-6",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Require TLS before advertising or accepting authentication on the submission service.",
+          "Update affected clients and rotate potentially exposed credentials through your approved process.",
+          "Confirm in a fresh capture that authentication cannot occur in plaintext."
+        ],
+        "snippet": {
+          "software": "Postfix 3.6+ (smtpd)",
+          "scope": "Example parameter values for authenticated submission only. Translate to per-service master.cf overrides where appropriate. Requires a working TLS certificate/key. Do not apply globally to a public port-25 relay.",
+          "warning": "Review and test before applying",
+          "config": "smtpd_tls_auth_only = yes\nsmtpd_tls_security_level = encrypt"
+        }
+      },
+      "rule_id": "SMS-AUTH-001",
+      "title": "Authentication Before TLS",
+      "severity": "CRITICAL",
+      "status": "FAIL",
+      "confidence": "HIGH",
+      "category": "Credential Protection",
+      "location": "192.0.2.7 → 198.51.100.25",
+      "plain_explanation": "Authentication occurred before TLS protection was established.",
+      "why_it_matters": "Transmitting authentication credentials over an unencrypted cleartext session exposes account login data to passive network capture and credential theft.",
+      "evidence": "SMTP authentication command (e.g. AUTH/LOGIN/USER) was observed on the wire.; Authentication occurred before TLS protection was established.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "auth_observed",
+          "value": true,
+          "source": "SMTP Command Metadata",
+          "description": "SMTP authentication command (e.g. AUTH/LOGIN/USER) was observed on the wire."
+        },
+        {
+          "type": "OBSERVED",
+          "field": "auth_before_tls",
+          "value": true,
+          "source": "Session Handshake Timeline",
+          "description": "Authentication occurred before TLS protection was established."
+        }
+      ],
+      "recommendation": "Configure the mail server to mandate STARTTLS before advertising or accepting AUTH commands.",
+      "references": [
+        "RFC 8314",
+        "RFC 4954"
+      ],
+      "affected_connection_id": "conn-real-6",
+      "related_session_id": "SMTP-STREAM-6",
+      "related_replay_event": "Authentication Before TLS"
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Inventory ClientHello offers and upgrade clients that cannot offer TLS 1.2 or newer.",
+          "Set a TLS 1.2 minimum on the affected service after staging tests and a rollback plan.",
+          "Check both mandatory and opportunistic TLS settings for the intended service."
+        ],
+        "snippet": {
+          "software": "Postfix 3.6+ (smtpd)",
+          "scope": "Example parameter values for authenticated submission only. Translate to per-service master.cf overrides where appropriate. Requires a working TLS certificate/key. Do not apply globally to a public port-25 relay.",
+          "warning": "Review and test before applying",
+          "config": "smtpd_tls_security_level = encrypt\nsmtpd_tls_mandatory_protocols = >=TLSv1.2"
+        }
+      },
+      "rule_id": "SMS-TLSVER-001",
+      "title": "Deprecated TLS Version (TLS 1.0)",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.8 → 198.51.100.25",
+      "plain_explanation": "Observed email session negotiated deprecated TLS 1.0 protocol, which is susceptible to known downgrade attacks and lacks modern authenticated encryption.",
+      "why_it_matters": "TLS 1.0 is formally deprecated under RFC 8996 due to lack of modern cipher constructions, vulnerability to downgrade attacks, and security weaknesses.",
+      "evidence": "Server selected deprecated protocol version TLS 1.0.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.0",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server selected deprecated protocol version TLS 1.0."
+        }
+      ],
+      "recommendation": "Disable TLS 1.0 on 198.51.100.25 and configure the mail server to require TLS 1.2 or TLS 1.3 as the minimum acceptable protocol version.",
+      "references": [
+        "RFC 8996",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-7",
+      "related_session_id": "SMTP-STREAM-7",
+      "related_replay_event": "ServerHello selection (TLS 1.0)"
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Upgrade the affected mail server and client TLS libraries.",
+          "Remove the identified weak suites from that service using its version-specific cipher configuration; prefer supported AEAD suites.",
+          "Test client compatibility and verify the newly selected cipher in a fresh capture."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CIPHER-001",
+      "title": "Weak / Deprecated Cipher Suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "confidence": "HIGH",
+      "category": "Cipher Suite Strength",
+      "location": "192.0.2.8 → 198.51.100.25",
+      "plain_explanation": "The session negotiated weak or deprecated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA, which is vulnerable to cryptanalytic attacks.",
+      "why_it_matters": "The selected cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA) utilizes obsolete algorithms (such as 64-bit block ciphers like 3DES vulnerable to Sweet32, or stream ciphers like RC4) susceptible to practical collision or plaintext recovery attacks.",
+      "evidence": "Negotiated cipher suite identifier: TLS_RSA_WITH_3DES_EDE_CBC_SHA.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "cipher_suite",
+          "value": "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
+          "source": "TLS Handshake ServerHello",
+          "description": "Negotiated cipher suite identifier: TLS_RSA_WITH_3DES_EDE_CBC_SHA."
+        }
+      ],
+      "recommendation": "Disable obsolete cipher suites (RC4, 3DES, DES, EXPORT, NULL) on the mail server and require modern AEAD suites (e.g., AES-GCM or ChaCha20-Poly1305).",
+      "references": [
+        "RFC 7465",
+        "RFC 7540",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-7",
+      "related_session_id": "SMTP-STREAM-7",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Prefer ephemeral ECDHE/DHE key exchange where supported; remove static RSA exchange after compatibility testing.",
+          "For TLS 1.3 inspect the selected key-share group; the cipher name alone does not prove forward secrecy."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Static Key Exchange Without Forward Secrecy",
+      "severity": "MEDIUM",
+      "status": "WARN",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.8 → 198.51.100.25",
+      "plain_explanation": "The session negotiated a static RSA key exchange cipher suite lacking Perfect Forward Secrecy. Compromise of the server private key allows retroactive decryption of past sessions.",
+      "why_it_matters": "Static key exchange allows an adversary who captures encrypted traffic to decrypt it retroactively if they acquire the server's private key in the future.",
+      "evidence": "Negotiated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA uses static RSA key exchange without ephemeral parameters.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": false,
+          "source": "TLS Handshake Cipher Suite",
+          "description": "Negotiated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA uses static RSA key exchange without ephemeral parameters."
+        }
+      ],
+      "recommendation": "Configure the mail server to disable static RSA key exchange suites and prioritize ECDHE key exchange.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-7",
+      "related_session_id": "SMTP-STREAM-7",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Collect the missing handshake or certificate evidence before deciding on a configuration change.",
+          "For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: limited visibility",
+      "severity": "INFO",
+      "status": "UNKNOWN",
+      "confidence": "LOW",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.8 → 198.51.100.25",
+      "plain_explanation": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "evidence_items": [
+        {
+          "type": "COVERAGE_GAP",
+          "field": "certificates",
+          "value": "Not visible",
+          "source": "TLS Certificate handshake",
+          "description": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them."
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-7",
+      "related_session_id": "SMTP-STREAM-7",
+      "related_replay_event": null
+    }
+  ],
+  "security_replay_summary": [
+    {
+      "session_id": "IMAP-STREAM-0",
+      "protocol": "IMAP",
+      "endpoints": "192.0.2.1:49001 → 198.51.100.25:993",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    },
+    {
+      "session_id": "POP3-STREAM-1",
+      "protocol": "POP3",
+      "endpoints": "192.0.2.2:49002 → 198.51.100.25:995",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    },
+    {
+      "session_id": "SMTP-STREAM-2",
+      "protocol": "SMTP",
+      "endpoints": "192.0.2.3:49003 → 198.51.100.25:465",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    },
+    {
+      "session_id": "IMAP-STREAM-3",
+      "protocol": "IMAP",
+      "endpoints": "192.0.2.4:49004 → 198.51.100.25:993",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    },
+    {
+      "session_id": "POP3-STREAM-4",
+      "protocol": "POP3",
+      "endpoints": "192.0.2.5:49005 → 198.51.100.25:995",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    },
+    {
+      "session_id": "SMTP-STREAM-5",
+      "protocol": "SMTP",
+      "endpoints": "192.0.2.6:49006 → 198.51.100.25:465",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    },
+    {
+      "session_id": "SMTP-STREAM-6",
+      "protocol": "SMTP",
+      "endpoints": "192.0.2.7:49007 → 198.51.100.25:587",
+      "event_count": 7,
+      "highest_security_state": "CRITICAL",
+      "critical_moment": "Authentication Before TLS"
+    },
+    {
+      "session_id": "SMTP-STREAM-7",
+      "protocol": "SMTP",
+      "endpoints": "192.0.2.8:49008 → 198.51.100.25:465",
+      "event_count": 3,
+      "highest_security_state": "WARNING",
+      "critical_moment": "ServerHello selection (TLS 1.0)"
+    }
+  ],
+  "hardening_impact_summary": {
+    "available_policies_count": 4,
+    "tested_policies": [
+      "SMS-POLICY-REQUIRE-TLS",
+      "SMS-POLICY-TLS12",
+      "SMS-POLICY-NO-WEAK-CIPHER"
+    ],
+    "summary_notes": "Passive hardening simulation evaluated 8 observed client(s) against 3 cryptographic policy baseline(s).",
+    "recommendation": "Validate client compatibility in staging using the Hardening Impact Simulator before enforcing strict TLS policies.",
+    "client_compatibility_overview": {
+      "COMPATIBLE": 7,
+      "WOULD_BREAK": 0,
+      "UNKNOWN": 1
+    }
+  },
+  "client_discovery_summary": {
+    "total_observed_clients": 8,
+    "modern_count": 6,
+    "legacy_count": 1,
+    "mixed_count": 1,
+    "unknown_count": 0,
+    "cleartext_clients_count": 1,
+    "clients_with_critical_findings": 1
+  },
+  "ai_assisted_prioritization": {
+    "status": "ANALYZED",
+    "method": "Isolation Forest (Offline Preprocessed)",
+    "population_size": 8,
+    "minimum_threshold": 5,
+    "summary_explanation": "Evaluated 8 observed client profile(s) across 14 transport dimensions. 2 client(s) surfaced for prioritized analyst review based on statistical behavioral divergence.",
+    "top_prioritized_clients": [
+      {
+        "client_id": "SMTP:192.0.2.7",
+        "anomaly_score": 90.0,
+        "priority": "HIGH_REVIEW",
+        "explanation": "Prioritized for analyst review because this client is one of the few observed endpoints transmitting authentication before TLS encryption.",
+        "contributing_features": [
+          "Cleartext session ratio",
+          "Encrypted session ratio",
+          "Cleartext authentication ratio"
+        ]
+      },
+      {
+        "client_id": "SMTP:192.0.2.8",
+        "anomaly_score": 76.5,
+        "priority": "HIGH_REVIEW",
+        "explanation": "Prioritized for analyst review because this client negotiated deprecated TLS 1.0 while the majority used modern TLS 1.2+.",
+        "contributing_features": [
+          "Deprecated TLS version ratio",
+          "Weak cipher suite ratio",
+          "Triggered security findings"
+        ]
+      },
+      {
+        "client_id": "IMAP:192.0.2.1",
+        "anomaly_score": 15.0,
+        "priority": "NORMAL",
+        "explanation": "Observed transport and cryptographic parameters align with the predominant baseline profile in this capture.",
+        "contributing_features": [
+          "Forward secrecy support",
+          "Cleartext session ratio",
+          "Encrypted session ratio"
+        ]
+      },
+      {
+        "client_id": "POP3:192.0.2.2",
+        "anomaly_score": 15.0,
+        "priority": "NORMAL",
+        "explanation": "Observed transport and cryptographic parameters align with the predominant baseline profile in this capture.",
+        "contributing_features": [
+          "Forward secrecy support",
+          "Cleartext session ratio",
+          "Encrypted session ratio"
+        ]
+      },
+      {
+        "client_id": "SMTP:192.0.2.3",
+        "anomaly_score": 15.0,
+        "priority": "NORMAL",
+        "explanation": "Observed transport and cryptographic parameters align with the predominant baseline profile in this capture.",
+        "contributing_features": [
+          "Forward secrecy support",
+          "Cleartext session ratio",
+          "Encrypted session ratio"
+        ]
+      }
+    ],
+    "disclaimer": "AI anomaly scores provide statistical prioritization relative to the observed capture fleet only. AI assessments never declare maliciousness or replace deterministic Phase 2 security findings."
+  },
+  "evidence_manifest": {
+    "schema_version": "1.0.0",
+    "investigation_id": "CAP-3c44bfb369ac",
+    "source_filename": "lab-mixed-fleet.pcap",
+    "capture_sha256": "3c44bfb369ac295fbe5c37cdfd1263652b8aa88582a00da4d48497d32cfbb6a6",
+    "generated_at": "2026-10-05T13:52:45Z",
+    "data_source": "REAL_CAPTURE",
+    "engine_version": "1.0.0",
+    "session_count": 8,
+    "finding_count": 25,
+    "replay_count": 8,
+    "observed_client_count": 8,
+    "findings_digest": "c26888b8345eb87de5d2069e099d1b559ff682e1927c0faccbbd39ad46d50dab",
+    "replay_digest": "6c92d663af58a707f84879b55d5a9336f59303663a1475e5962dae5a9ff14229",
+    "discovery_digest": "ce54a29305f9eabf9d09cb0ae717aac9964455d60633c22e834af408d2a40d40",
+    "simulation_digest": "bc6c9af841fcf35755fd0738dcb1892fa7c335c3957d2fa89a56df0874403ca5",
+    "evidence_root": "dc709a71495058831ac94c588323af42e19f8ecdb5f963e1a7c86d1602ca84cd",
+    "report_digest": "e3b97c8b281e421736e5dc406a3e14109bb8c5e3e40b44f5bb745bb4fb40a561",
+    "integrity_algorithm": "SHA-256",
+    "integrity_status": "VERIFIED",
+    "verification_statement": "Evidence integrity verified against the report manifest."
+  },
+  "limitations": [
+    "TLS selections come from ServerHello; observing ServerHello does not prove handshake completion or successful delivery.",
+    "TLS 1.3 certificates are encrypted. Chain validation requires visible certificates, observed SNI, capture time, and SMS_TRUST_STORE. Revocation is not checked.",
+    "Capture SHA-256 and report hashes support integrity comparison, not source authentication or digital signatures.",
+    "Analysis reflects strictly traffic captured and visible within the submitted packet capture window.",
+    "Passive network observation cannot evaluate email clients or cryptographic capabilities absent from the capture.",
+    "Incomplete TCP streams or truncated TLS handshakes in capture boundaries may limit full capability assessment.",
+    "AI-assisted anomaly prioritization is relative strictly to the observed client population in this capture.",
+    "AI anomaly engine abstains from statistical ranking when the comparison population is insufficient (minimum 5 observed clients).",
+    "Encrypted application-layer email payload (message text, headers, attachments) is not decrypted.",
+    "Hardening Impact Simulation results reflect passive capability evidence only and do not modify live servers."
+  ],
+  "privacy_statement": "Capture files can contain sensitive payloads and are processed locally by TShark. Temporary uploaded files are removed after analysis. Command arguments are discarded at the extraction boundary; generated investigations retain transport and certificate metadata rather than message bodies or authentication secrets. Reports may contain IP addresses, hostnames, and certificate identities. No network revocation lookup or cloud AI is used.",
+  "recommendations": [
+    {
+      "priority_rank": 1,
+      "rule_id": "SMS-AUTH-001",
+      "severity": "CRITICAL",
+      "action": "Configure the mail server to mandate STARTTLS before advertising or accepting AUTH commands.",
+      "rationale": "Authentication occurred before TLS protection was established.",
+      "policy_bridge": "SMS-POLICY-REQUIRE-TLS"
+    },
+    {
+      "priority_rank": 2,
+      "rule_id": "SMS-TLS-001",
+      "severity": "HIGH",
+      "action": "Enforce TLS encryption for all email communications using Direct TLS (e.g. port 465/993/995) or mandatory STARTTLS with strict rejection of unencrypted fallbacks.",
+      "rationale": "This email session continued without TLS protection, allowing application-layer traffic to traverse the observed network path without transport encryption.",
+      "policy_bridge": "SMS-POLICY-REQUIRE-TLS"
+    },
+    {
+      "priority_rank": 3,
+      "rule_id": "SMS-STARTTLS-001",
+      "severity": "HIGH",
+      "action": "Configure the client and server policy to require TLS for this mail flow and reject insecure fallback where operationally appropriate.",
+      "rationale": "The server advertised STARTTLS, but the client continued the SMTP session without upgrading to TLS.",
+      "policy_bridge": "SMS-POLICY-REQUIRE-TLS"
+    },
+    {
+      "priority_rank": 4,
+      "rule_id": "SMS-TLSVER-001",
+      "severity": "HIGH",
+      "action": "Disable TLS 1.0 on 198.51.100.25 and configure the mail server to require TLS 1.2 or TLS 1.3 as the minimum acceptable protocol version.",
+      "rationale": "Observed email session negotiated deprecated TLS 1.0 protocol, which is susceptible to known downgrade attacks and lacks modern authenticated encryption.",
+      "policy_bridge": "SMS-POLICY-TLS12"
+    },
+    {
+      "priority_rank": 5,
+      "rule_id": "SMS-CIPHER-001",
+      "severity": "HIGH",
+      "action": "Disable obsolete cipher suites (RC4, 3DES, DES, EXPORT, NULL) on the mail server and require modern AEAD suites (e.g., AES-GCM or ChaCha20-Poly1305).",
+      "rationale": "The session negotiated weak or deprecated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA, which is vulnerable to cryptanalytic attacks.",
+      "policy_bridge": "SMS-POLICY-NO-WEAK-CIPHER"
+    },
+    {
+      "priority_rank": 6,
+      "rule_id": "SMS-PFS-001",
+      "severity": "MEDIUM",
+      "action": "Configure the mail server to disable static RSA key exchange suites and prioritize ECDHE key exchange.",
+      "rationale": "The session negotiated a static RSA key exchange cipher suite lacking Perfect Forward Secrecy. Compromise of the server private key allows retroactive decryption of past sessions.",
+      "policy_bridge": null
+    },
+    {
+      "priority_rank": 7,
+      "rule_id": "SMS-TLSVER-002",
+      "severity": "INFO",
+      "action": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "rationale": "A currently accepted TLS protocol version (TLS 1.3) was observed.",
+      "policy_bridge": null
+    },
+    {
+      "priority_rank": 8,
+      "rule_id": "SMS-CERT-001",
+      "severity": "INFO",
+      "action": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "rationale": "No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.",
+      "policy_bridge": null
+    }
+  ]
+}

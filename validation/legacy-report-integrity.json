@@ -1,0 +1,9 @@
+{
+  "is_valid": true,
+  "status": "VERIFIED",
+  "verification_statement": "Evidence integrity verified against the report manifest.",
+  "algorithm": "SHA-256",
+  "evidence_root": "d1f8a416540ce87fc9e7d869fbd8ffe0887d631bf7e537e88ae9d92396bb17b9",
+  "report_digest": "e92e1a1cc9db2122c1affafb20f8dac1de9a03f3982626d79be989ea593a617c",
+  "mismatches": []
+}

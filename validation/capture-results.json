@@ -1,0 +1,1126 @@
+{
+  "generated_at": "2026-10-05T13:52:47.171257+00:00",
+  "tshark_version": "TShark (Wireshark) 4.6.9 (v4.6.9-0-g2d548b197c75).",
+  "origin": "Synthetic lab fixtures, not production or public benchmark traffic",
+  "passed": 20,
+  "total": 20,
+  "results": [
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 0,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-smtp-cleartext-auth.pcap",
+      "sha256": "28c70a5faaefcb8c5e3af886c07d01ce66b3e3ed442e035b084f4b018d733408",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "None",
+        "rules": [
+          "SMS-AUTH-001",
+          "SMS-TLS-001",
+          "SMS-STARTTLS-001"
+        ]
+      },
+      "sessions": 1,
+      "posture": "CRITICAL",
+      "negotiated_tls": [
+        "None"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-STARTTLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-AUTH-001",
+          "status": "FAIL",
+          "severity": "CRITICAL"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 0,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-imap-cleartext.pcap",
+      "sha256": "c42bf0ee7d6bf42121f6d1be33431b0550c482514a8e4dd576cd5eacb3a6a463",
+      "passed": true,
+      "expected": {
+        "protocol": "IMAP",
+        "tls": "None",
+        "rules": [
+          "SMS-AUTH-001"
+        ]
+      },
+      "sessions": 1,
+      "posture": "CRITICAL",
+      "negotiated_tls": [
+        "None"
+      ],
+      "protocols": [
+        "IMAP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-AUTH-001",
+          "status": "FAIL",
+          "severity": "CRITICAL"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 0,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-pop3-cleartext.pcap",
+      "sha256": "3799de12e6eb12850c1d4f10e3e358c6138d73f6b39cd41345a736f01389ff12",
+      "passed": true,
+      "expected": {
+        "protocol": "POP3",
+        "tls": "None",
+        "rules": [
+          "SMS-AUTH-001"
+        ]
+      },
+      "sessions": 1,
+      "posture": "CRITICAL",
+      "negotiated_tls": [
+        "None"
+      ],
+      "protocols": [
+        "POP3"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-AUTH-001",
+          "status": "FAIL",
+          "severity": "CRITICAL"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-smtp-starttls-tls12.pcap",
+      "sha256": "a3529986a2f36e3bfa8eecd1622a84a90b32c4f3dd96acaa30f68b1d58ecf315",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "TLS 1.2",
+        "cipher": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "starttls": true,
+        "certificates": 1
+      },
+      "sessions": 1,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.2"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-imap-starttls.pcap",
+      "sha256": "05c6fb8baa17b0bc40f5db27413a797385ae9b708041898a80b18f288a6a9521",
+      "passed": true,
+      "expected": {
+        "protocol": "IMAP",
+        "tls": "TLS 1.2",
+        "starttls": true
+      },
+      "sessions": 1,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.2"
+      ],
+      "protocols": [
+        "IMAP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-pop3-stls.pcap",
+      "sha256": "d68054c44d44e3f87018291aa2c71a8c1413b0dd9f529d1723137538d39f9d25",
+      "passed": true,
+      "expected": {
+        "protocol": "POP3",
+        "tls": "TLS 1.2",
+        "starttls": true
+      },
+      "sessions": 1,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.2"
+      ],
+      "protocols": [
+        "POP3"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-ca-signed-tls12.pcap",
+      "sha256": "0e3fa2136818ee732a7833f30cab1a72ef5f0f9a5a92caa369848e5f9e625d97",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "TLS 1.2",
+        "certificates": 1
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "TLS 1.2"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-smtp-tls13.pcap",
+      "sha256": "6911d5b70cd212d20f75ccaaea9b8d954796bf657e650ade84e8ffec1b3dde79",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "TLS 1.3",
+        "certificates": 0
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "TLS 1.3"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-imap-tls13.pcap",
+      "sha256": "cbb780e4d77b262bb313c1fd73d2fb00c3e67ca003cdc173af0bd7de3114cd13",
+      "passed": true,
+      "expected": {
+        "protocol": "IMAP",
+        "tls": "TLS 1.3",
+        "certificates": 0
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "TLS 1.3"
+      ],
+      "protocols": [
+        "IMAP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-pop3-tls13.pcap",
+      "sha256": "e1479815f2dc6553db19a5825d5c972ac65c2cf7fa0383ac50ca21471374b395",
+      "passed": true,
+      "expected": {
+        "protocol": "POP3",
+        "tls": "TLS 1.3",
+        "certificates": 0
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "TLS 1.3"
+      ],
+      "protocols": [
+        "POP3"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-fragmented-out-of-order.pcap",
+      "sha256": "81056f652686164775f217ccb7f841ff03532aa3960342262158aca2d9e41600",
+      "passed": true,
+      "expected": {
+        "protocol": "IMAP",
+        "tls": "TLS 1.2",
+        "certificates": 1
+      },
+      "sessions": 1,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.2"
+      ],
+      "protocols": [
+        "IMAP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-expired-certificate.pcap",
+      "sha256": "a5fe45457b23f320ff415382f0782026e6b9f28a88a838fdce6c372984d99a28",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "TLS 1.2",
+        "rules": [
+          "SMS-CERT-001"
+        ],
+        "certificate_issue": "Expired at capture time"
+      },
+      "sessions": 1,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.2"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-clienthello-only.pcap",
+      "sha256": "1d0afc8fcca10fd55b2a6d54291eda08bfb3b6a94de5f0d2a6721bdec4e357c5",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "UNKNOWN",
+        "forbidden_rules": [
+          "SMS-TLSVER-002",
+          "SMS-TLSVER-001",
+          "SMS-TLS-001"
+        ]
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "UNKNOWN"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-COVERAGE-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 0,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-midstream-encrypted.pcap",
+      "sha256": "a551b7ed8ff5b19eec0df00a130991b14301d8f3e59923d3fed40b847c949c1b",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "UNKNOWN",
+        "forbidden_rules": [
+          "SMS-TLS-001",
+          "SMS-TLSVER-002"
+        ]
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "UNKNOWN"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-COVERAGE-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 0,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-starttls-rejected.pcap",
+      "sha256": "adce3c0710e5bca5cb60ddc7886bc52570a5ce91b2d2789379a90db368192eaf",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "UNKNOWN",
+        "starttls": false
+      },
+      "sessions": 1,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [
+        "UNKNOWN"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-COVERAGE-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 1,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-legacy-tls10-3des.pcap",
+      "sha256": "41b59d9e30c1bdfebf6ff791114d490d04d234af5c63559afc7587eb08f6fc6e",
+      "passed": true,
+      "expected": {
+        "protocol": "SMTP",
+        "tls": "TLS 1.0",
+        "cipher": "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
+        "rules": [
+          "SMS-TLSVER-001",
+          "SMS-CIPHER-001"
+        ]
+      },
+      "sessions": 1,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.0"
+      ],
+      "protocols": [
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-CIPHER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "WARN",
+          "severity": "MEDIUM"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "INSUFFICIENT_SAMPLE"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 7,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-mixed-fleet.pcap",
+      "sha256": "3c44bfb369ac295fbe5c37cdfd1263652b8aa88582a00da4d48497d32cfbb6a6",
+      "passed": true,
+      "expected": {
+        "sessions": 8,
+        "protocols": [
+          "SMTP",
+          "IMAP",
+          "POP3"
+        ],
+        "rules": [
+          "SMS-AUTH-001",
+          "SMS-CIPHER-001"
+        ]
+      },
+      "sessions": 8,
+      "posture": "CRITICAL",
+      "negotiated_tls": [
+        "None",
+        "TLS 1.0",
+        "TLS 1.3"
+      ],
+      "protocols": [
+        "IMAP",
+        "POP3",
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-STARTTLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-AUTH-001",
+          "status": "FAIL",
+          "severity": "CRITICAL"
+        },
+        {
+          "rule_id": "SMS-TLSVER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-CIPHER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "WARN",
+          "severity": "MEDIUM"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "ANALYZED"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 7,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-mixed-fleet.pcapng",
+      "sha256": "33496e88e0a89a2a5b40008f680fba7dd055b697fc866cd6b2d139918b3312c4",
+      "passed": true,
+      "expected": {
+        "sessions": 8,
+        "protocols": [
+          "SMTP",
+          "IMAP",
+          "POP3"
+        ],
+        "rules": [
+          "SMS-AUTH-001",
+          "SMS-CIPHER-001"
+        ]
+      },
+      "sessions": 8,
+      "posture": "CRITICAL",
+      "negotiated_tls": [
+        "None",
+        "TLS 1.0",
+        "TLS 1.3"
+      ],
+      "protocols": [
+        "IMAP",
+        "POP3",
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-STARTTLS-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-AUTH-001",
+          "status": "FAIL",
+          "severity": "CRITICAL"
+        },
+        {
+          "rule_id": "SMS-TLSVER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-CIPHER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "WARN",
+          "severity": "MEDIUM"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "ANALYZED"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 2,
+        "WOULD_BREAK": 2,
+        "UNKNOWN": 1
+      },
+      "filename": "lab-legacy-clients-offer.pcap",
+      "sha256": "5d5963531009bae8b390307518574c806e5663da96f02bec596ece77daf7b614",
+      "passed": true,
+      "expected": {
+        "sessions": 5,
+        "simulation_counts": {
+          "COMPATIBLE": 2,
+          "WOULD_BREAK": 2,
+          "UNKNOWN": 1
+        }
+      },
+      "sessions": 5,
+      "posture": "HIGH_RISK",
+      "negotiated_tls": [
+        "TLS 1.0",
+        "TLS 1.2",
+        "TLS 1.3",
+        "UNKNOWN"
+      ],
+      "protocols": [
+        "IMAP",
+        "SMTP"
+      ],
+      "findings": [
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-TLSVER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "WARN",
+          "severity": "MEDIUM"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-TLSVER-002",
+          "status": "PASS",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CIPHER-001",
+          "status": "FAIL",
+          "severity": "HIGH"
+        },
+        {
+          "rule_id": "SMS-PFS-001",
+          "status": "WARN",
+          "severity": "MEDIUM"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-COVERAGE-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "SMS-CERT-001",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "ANALYZED"
+    },
+    {
+      "simulation_counts": {
+        "COMPATIBLE": 0,
+        "WOULD_BREAK": 0,
+        "UNKNOWN": 0
+      },
+      "filename": "lab-no-mail.pcap",
+      "sha256": "ca232cb531753c53f8a5f62afeb838b244e4e7b6acbde3f3593871d3079cdd1d",
+      "passed": true,
+      "expected": {
+        "sessions": 0
+      },
+      "sessions": 0,
+      "posture": "UNKNOWN",
+      "negotiated_tls": [],
+      "protocols": [],
+      "findings": [
+        {
+          "rule_id": "RULE-REAL-NO-MAIL-TRAFFIC",
+          "status": "UNKNOWN",
+          "severity": "INFO"
+        }
+      ],
+      "ai_status": "NO_CLIENTS"
+    }
+  ]
+}

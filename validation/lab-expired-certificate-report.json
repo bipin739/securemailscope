@@ -1,0 +1,448 @@
+{
+  "fix_first": {
+    "type": "RULE",
+    "label": "Heuristic prioritisation, not a calibrated risk score",
+    "weights": {
+      "severity": 2,
+      "affected_sessions": 1,
+      "anomaly_tiebreak": 1
+    },
+    "severity_values": {
+      "CRITICAL": 5,
+      "HIGH": 4,
+      "MEDIUM": 3,
+      "LOW": 2,
+      "INFO": 1
+    },
+    "anomaly_population": 0,
+    "anomaly_status": "INSUFFICIENT_SAMPLE",
+    "formula": "severity value × severity weight + affected sessions × session weight + anomaly points (population − rank + 1; zero when unavailable). Weights ensure strict severity, then session-count precedence.",
+    "rows": [
+      {
+        "type": "RULE",
+        "rule_id": "SMS-CERT-001",
+        "title": "Certificate assessment: issues detected",
+        "severity": "HIGH",
+        "finding_ids": [
+          "FIND-SMS-CERT-001-0"
+        ],
+        "connection_ids": [
+          "conn-real-0"
+        ],
+        "client_ids": [
+          "SMTP:192.0.2.1"
+        ],
+        "affected_sessions": 1,
+        "anomaly_rank": null,
+        "ordering_points": 9,
+        "evidence": [
+          {
+            "type": "RULE",
+            "field": "severity",
+            "value": "HIGH",
+            "source": "Deterministic findings"
+          },
+          {
+            "type": "OBSERVED",
+            "field": "affected_sessions",
+            "value": 1,
+            "source": "Unique captured TCP sessions"
+          },
+          {
+            "type": "COVERAGE_GAP",
+            "field": "anomaly_rank",
+            "value": null,
+            "source": "Within-capture Isolation Forest; tie-breaker only"
+          }
+        ],
+        "rank": 1
+      }
+    ]
+  },
+  "capture_origin": "SYNTHETIC_LAB",
+  "session_evidence": [
+    {
+      "id": "conn-real-0",
+      "source_node_id": "node-192-0-2-1",
+      "target_node_id": "node-198-51-100-25",
+      "source_label": "Client (192.0.2.1)",
+      "target_label": "Server (198.51.100.25)",
+      "protocol": "SMTP",
+      "transport_mode": "Direct TLS (Implicit)",
+      "tls_version": "TLS 1.2",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+      "security_status": "CRITICAL",
+      "session_id": "SMTP-STREAM-0",
+      "has_pfs": true,
+      "has_aead": true,
+      "starttls_advertised": false,
+      "starttls_used": false,
+      "auth_observed": false,
+      "starttls_requested": false,
+      "starttls_accepted": false,
+      "server_key_share_group": null,
+      "quantum_readiness": {
+        "severity": "INFO",
+        "group": null,
+        "frame": "6",
+        "applicability": "TLS 1.3 ServerHello only",
+        "type": "COVERAGE_GAP",
+        "classification": "UNKNOWN",
+        "group_name": null,
+        "label": "Quantum readiness: UNKNOWN",
+        "detail": "A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced."
+      },
+      "client_hello_offers": [
+        {
+          "ja3_fingerprint": "d1f47f694f10b1faf653048918492609",
+          "type": "OBSERVED",
+          "frame": "4",
+          "supported_tls_versions": [
+            "TLS 1.2"
+          ],
+          "legacy_version": "TLS 1.2",
+          "versions_source": "legacy maximum version",
+          "offered_cipher_suites": [
+            "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          ],
+          "offered_groups": [
+            "0x0017",
+            "0x0018",
+            "0x0019",
+            "0x001d",
+            "0x001e"
+          ]
+        }
+      ],
+      "certificates": [
+        {
+          "subject": "CN=mail.sih.test",
+          "issuer": "CN=mail.sih.test",
+          "serial_number": "0x662f",
+          "sha256": "513a590c0990293da2d8a6b4dafea8828177a78775d69976c6bf2f917edc9d22",
+          "frame": "6",
+          "not_before": "2026-06-26T00:00:00+00:00",
+          "not_after": "2026-10-03T00:00:00+00:00",
+          "assessed_at": "2026-10-04T12:00:00+00:00",
+          "public_key_algorithm": "RSA",
+          "public_key_bits": 2048,
+          "signature_algorithm": "1.2.840.113549.1.1.11",
+          "signature_hash": "sha256",
+          "dns_names": [
+            "mail.sih.test"
+          ],
+          "issues": [
+            "Expired at capture time",
+            "Self-issued leaf certificate; explicit trust required"
+          ],
+          "chain_status": "UNKNOWN",
+          "chain_detail": "No explicit trust store supplied. Chain trust and revocation are not verified."
+        }
+      ],
+      "server_hello_frame": "6",
+      "capture_gaps": false,
+      "plaintext_observed": false,
+      "tls_observed": false,
+      "auth_before_tls": false,
+      "explanation": {
+        "headline": "Incomplete or Ambiguous Transport Session",
+        "summary": "Captured SMTP session did not complete standard cryptographic handshake in capture window.",
+        "why_it_matters": "Cannot conclusively verify whether encryption was established.",
+        "evidence_summary": "Stream 0: 192.0.2.1:49001 -> 198.51.100.25:465 (15 packets, STARTTLS Advertised: NO, STARTTLS Used: NO)",
+        "recommended_action": "Ensure capture covers complete connection lifecycle from initial TCP handshake."
+      },
+      "evidence": {
+        "session_id": "SMTP-STREAM-0",
+        "handshake_record": "TCP Stream 0 (Direct TLS (Implicit))",
+        "cipher_suite_hex": "0xc02f",
+        "protocol_version_hex": "0x0303",
+        "ports": "49001 -> 465",
+        "packet_count": 15
+      }
+    }
+  ],
+  "report_metadata": {
+    "report_id": "RPT-a5fe45457b23",
+    "investigation_id": "CAP-a5fe45457b23",
+    "generated_at": "2026-10-05T13:52:42Z",
+    "engine_name": "SecureMailScope Analysis & Reporting Engine",
+    "engine_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "data_source": "REAL_CAPTURE",
+    "is_simulated": false
+  },
+  "executive_summary": {
+    "headline": "High-Risk Transport Security Issues Detected",
+    "overall_posture": "HIGH_RISK",
+    "posture_summary": "Significant transport weaknesses or obsolete cryptographic protocols were identified.",
+    "key_findings_summary": "The assessment identified 3 finding(s) across transport sessions.",
+    "transport_security_summary": "SecureMailScope analyzed 1 observed SMTP transport session(s) from capture 'lab-expired-certificate.pcap'. 0 session(s) passed all assessed baseline checks, 0 required review, and 1 had critical transport risks.",
+    "ai_anomaly_summary": "AI-assisted anomaly prioritization was not performed because only 1 observed client(s) was available for comparison (minimum requirement: 5 observed clients).",
+    "full_text": "SecureMailScope analyzed 1 observed SMTP transport session(s) from capture 'lab-expired-certificate.pcap'. 0 session(s) passed all assessed baseline checks, 0 required review, and 1 had critical transport risks.\n\nSignificant transport weaknesses or obsolete cryptographic protocols were identified. The assessment identified 3 finding(s) across transport sessions.\n\nAI-assisted anomaly prioritization was not performed because only 1 observed client(s) was available for comparison (minimum requirement: 5 observed clients)."
+  },
+  "capture_summary": {
+    "filename": "lab-expired-certificate.pcap",
+    "capture_sha256": "a5fe45457b23f320ff415382f0782026e6b9f28a88a838fdce6c372984d99a28",
+    "capture_sha256_short": "a5fe45457b23",
+    "capture_date": "2026-10-04T12:00:00+00:00",
+    "total_sessions": 1,
+    "secure_sessions": 0,
+    "warning_sessions": 0,
+    "critical_sessions": 1,
+    "observed_clients_count": 1,
+    "protocols_observed": [
+      "SMTP"
+    ]
+  },
+  "security_posture": {
+    "status": "HIGH_RISK",
+    "findings_count": 3,
+    "critical_count": 0,
+    "high_count": 1,
+    "medium_count": 0,
+    "low_count": 0,
+    "info_count": 2,
+    "passed_checks": 2,
+    "coverage_gaps": 0
+  },
+  "deterministic_findings": [
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-TLSVER-002",
+      "title": "Modern TLS Version (TLS 1.2)",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Protocol Version",
+      "location": "192.0.2.1 → 198.51.100.25",
+      "plain_explanation": "A currently accepted TLS protocol version (TLS 1.2) was observed.",
+      "why_it_matters": "TLS 1.2 conforms to modern transport security baselines and supports strong cryptographic primitives.",
+      "evidence": "Server negotiated modern protocol version TLS 1.2.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "tls_version",
+          "value": "TLS 1.2",
+          "source": "TLS Handshake ServerHello",
+          "description": "Server negotiated modern protocol version TLS 1.2."
+        }
+      ],
+      "recommendation": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "references": [
+        "RFC 5246",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-0",
+      "related_session_id": "SMTP-STREAM-0",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-PFS-001",
+      "title": "Forward Secrecy Supported",
+      "severity": "INFO",
+      "status": "PASS",
+      "confidence": "HIGH",
+      "category": "Key Exchange",
+      "location": "192.0.2.1 → 198.51.100.25",
+      "plain_explanation": "The negotiated cipher suite utilizes ephemeral key exchange (ECDHE/DHE), providing Perfect Forward Secrecy.",
+      "why_it_matters": "Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.",
+      "evidence": "Negotiated cipher suite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 includes ephemeral key exchange.",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "has_pfs",
+          "value": true,
+          "source": "TLS Handshake Cipher Suite",
+          "description": "Negotiated cipher suite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 includes ephemeral key exchange."
+        }
+      ],
+      "recommendation": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "references": [
+        "RFC 8446",
+        "NIST SP 800-52 Rev. 2"
+      ],
+      "affected_connection_id": "conn-real-0",
+      "related_session_id": "SMTP-STREAM-0",
+      "related_replay_event": null
+    },
+    {
+      "remediation": {
+        "type": "RULE",
+        "steps": [
+          "Check the reported certificate issue against the intended hostname and capture time.",
+          "Renew expired certificates, correct names and intermediates, and use approved keys and signature algorithms as applicable.",
+          "Supply an approved PEM trust bundle for offline path validation. Assess revocation using separately obtained evidence; this tool makes no revocation requests."
+        ],
+        "snippet": null
+      },
+      "rule_id": "SMS-CERT-001",
+      "title": "Certificate assessment: issues detected",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "confidence": "HIGH",
+      "category": "X.509 Certificates",
+      "location": "192.0.2.1 → 198.51.100.25",
+      "plain_explanation": "Expired at capture time; Self-issued leaf certificate; explicit trust required",
+      "why_it_matters": "Encryption parameters alone do not establish the identity or trustworthiness of a mail server.",
+      "evidence": "Expired at capture time; Self-issued leaf certificate; explicit trust required",
+      "evidence_items": [
+        {
+          "type": "OBSERVED",
+          "field": "certificates",
+          "value": [
+            {
+              "subject": "CN=mail.sih.test",
+              "issuer": "CN=mail.sih.test",
+              "serial_number": "0x662f",
+              "sha256": "513a590c0990293da2d8a6b4dafea8828177a78775d69976c6bf2f917edc9d22",
+              "frame": "6",
+              "not_before": "2026-06-26T00:00:00+00:00",
+              "not_after": "2026-10-03T00:00:00+00:00",
+              "assessed_at": "2026-10-04T12:00:00+00:00",
+              "public_key_algorithm": "RSA",
+              "public_key_bits": 2048,
+              "signature_algorithm": "1.2.840.113549.1.1.11",
+              "signature_hash": "sha256",
+              "dns_names": [
+                "mail.sih.test"
+              ],
+              "issues": [
+                "Expired at capture time",
+                "Self-issued leaf certificate; explicit trust required"
+              ],
+              "chain_status": "UNKNOWN",
+              "chain_detail": "No explicit trust store supplied. Chain trust and revocation are not verified."
+            }
+          ],
+          "source": "TLS Certificate handshake",
+          "description": "Expired at capture time; Self-issued leaf certificate; explicit trust required"
+        }
+      ],
+      "recommendation": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "references": [
+        "RFC 5280",
+        "RFC 8446"
+      ],
+      "affected_connection_id": "conn-real-0",
+      "related_session_id": "SMTP-STREAM-0",
+      "related_replay_event": null
+    }
+  ],
+  "security_replay_summary": [
+    {
+      "session_id": "SMTP-STREAM-0",
+      "protocol": "SMTP",
+      "endpoints": "192.0.2.1:49001 → 198.51.100.25:465",
+      "event_count": 3,
+      "highest_security_state": "SECURE",
+      "critical_moment": null
+    }
+  ],
+  "hardening_impact_summary": {
+    "available_policies_count": 4,
+    "tested_policies": [
+      "SMS-POLICY-REQUIRE-TLS",
+      "SMS-POLICY-TLS12",
+      "SMS-POLICY-NO-WEAK-CIPHER"
+    ],
+    "summary_notes": "Passive hardening simulation evaluated 1 observed client(s) against 3 cryptographic policy baseline(s).",
+    "recommendation": "Validate client compatibility in staging using the Hardening Impact Simulator before enforcing strict TLS policies.",
+    "client_compatibility_overview": {
+      "COMPATIBLE": 1,
+      "WOULD_BREAK": 0,
+      "UNKNOWN": 0
+    }
+  },
+  "client_discovery_summary": {
+    "total_observed_clients": 1,
+    "modern_count": 1,
+    "legacy_count": 0,
+    "mixed_count": 0,
+    "unknown_count": 0,
+    "cleartext_clients_count": 0,
+    "clients_with_critical_findings": 0
+  },
+  "ai_assisted_prioritization": {
+    "status": "INSUFFICIENT_SAMPLE",
+    "method": "Isolation Forest (Offline Preprocessed)",
+    "population_size": 1,
+    "minimum_threshold": 5,
+    "summary_explanation": "Only 1 observed client is present in this capture. Statistical outlier analysis requires a larger comparison population (minimum 5 observed clients).",
+    "top_prioritized_clients": [],
+    "disclaimer": "AI anomaly scores provide statistical prioritization relative to the observed capture fleet only. AI assessments never declare maliciousness or replace deterministic Phase 2 security findings."
+  },
+  "evidence_manifest": {
+    "schema_version": "1.0.0",
+    "investigation_id": "CAP-a5fe45457b23",
+    "source_filename": "lab-expired-certificate.pcap",
+    "capture_sha256": "a5fe45457b23f320ff415382f0782026e6b9f28a88a838fdce6c372984d99a28",
+    "generated_at": "2026-10-05T13:52:42Z",
+    "data_source": "REAL_CAPTURE",
+    "engine_version": "1.0.0",
+    "session_count": 1,
+    "finding_count": 3,
+    "replay_count": 1,
+    "observed_client_count": 1,
+    "findings_digest": "485a26c7780ed12c0d857a551dfe787868fdbf6c9e95548c861f30e1f2442e44",
+    "replay_digest": "b33205439e8b46b644021fec75f5cb5246d1a52dc102932151bffedcada3ce76",
+    "discovery_digest": "df40890d2fc425cc14b2065d664b591a69e9eea8b7f3de688279fe2dfab12ab3",
+    "simulation_digest": "051fbde1bbd51f401766e7a57655f2bc558b6a97516fa2820f0223fd875e1ca1",
+    "evidence_root": "2c983730863f7a2dff84b5bdc3b875adfac3db10d8e4d59efc4a43645d22a312",
+    "report_digest": "a0b813c4e751c07e2d3ba48f6f7f0d5173db9cd2bc76bd162eb9e38d8777b4e5",
+    "integrity_algorithm": "SHA-256",
+    "integrity_status": "VERIFIED",
+    "verification_statement": "Evidence integrity verified against the report manifest."
+  },
+  "limitations": [
+    "TLS selections come from ServerHello; observing ServerHello does not prove handshake completion or successful delivery.",
+    "TLS 1.3 certificates are encrypted. Chain validation requires visible certificates, observed SNI, capture time, and SMS_TRUST_STORE. Revocation is not checked.",
+    "Capture SHA-256 and report hashes support integrity comparison, not source authentication or digital signatures.",
+    "Analysis reflects strictly traffic captured and visible within the submitted packet capture window.",
+    "Passive network observation cannot evaluate email clients or cryptographic capabilities absent from the capture.",
+    "Incomplete TCP streams or truncated TLS handshakes in capture boundaries may limit full capability assessment.",
+    "AI-assisted anomaly prioritization is relative strictly to the observed client population in this capture.",
+    "AI anomaly engine abstains from statistical ranking when the comparison population is insufficient (minimum 5 observed clients).",
+    "Encrypted application-layer email payload (message text, headers, attachments) is not decrypted.",
+    "Hardening Impact Simulation results reflect passive capability evidence only and do not modify live servers."
+  ],
+  "privacy_statement": "Capture files can contain sensitive payloads and are processed locally by TShark. Temporary uploaded files are removed after analysis. Command arguments are discarded at the extraction boundary; generated investigations retain transport and certificate metadata rather than message bodies or authentication secrets. Reports may contain IP addresses, hostnames, and certificate identities. No network revocation lookup or cloud AI is used.",
+  "recommendations": [
+    {
+      "priority_rank": 1,
+      "rule_id": "SMS-CERT-001",
+      "severity": "HIGH",
+      "action": "Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.",
+      "rationale": "Expired at capture time; Self-issued leaf certificate; explicit trust required",
+      "policy_bridge": null
+    },
+    {
+      "priority_rank": 2,
+      "rule_id": "SMS-TLSVER-002",
+      "severity": "INFO",
+      "action": "Maintain current TLS version baseline and monitor for future cryptographic standard updates.",
+      "rationale": "A currently accepted TLS protocol version (TLS 1.2) was observed.",
+      "policy_bridge": null
+    },
+    {
+      "priority_rank": 3,
+      "rule_id": "SMS-PFS-001",
+      "severity": "INFO",
+      "action": "Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.",
+      "rationale": "The negotiated cipher suite utilizes ephemeral key exchange (ECDHE/DHE), providing Perfect Forward Secrecy.",
+      "policy_bridge": null
+    }
+  ]
+}

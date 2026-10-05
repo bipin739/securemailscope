@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureMailScope Report — RPT-5d5963531009</title>
+    <style>
+        @page {
+            margin: 15mm;
+            size: A4 portrait;
+        }
+        body {
+            overflow-wrap: anywhere;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #0f172a;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 24px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 16px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin-top: 28px;
+            margin-bottom: 14px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+        .stat-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            font-family: monospace;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .integrity-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid #0284c7;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-family: monospace;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Report Header -->
+        <table class="header-table">
+            <tr>
+                <td style="vertical-align: top;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                        <span style="font-size: 20px; font-weight: 900; letter-spacing: -0.02em; color: #0f172a;">SECUREMAILSCOPE</span>
+                        <span style="font-size: 10px; font-family: monospace; font-weight: 700; background: #0f172a; color: #ffffff; padding: 2px 6px; border-radius: 4px;">v1.0.0</span>
+                    </div>
+                    <div style="font-size: 12px; color: #475569; font-weight: 600;">Cryptographic Security Posture Assessment for Secure Email Communications</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">SIH26159 — Offline-First Mail Transport Analysis</div>
+                </td>
+                <td style="text-align: right; vertical-align: top;">
+                    <div style="margin-bottom: 6px;">
+    <span style="background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; font-family: monospace; text-transform: uppercase;">
+        SYNTHETIC LAB PCAP
+    </span>
+    </div>
+                    <div style="font-size: 11px; font-family: monospace; color: #334155;"><strong>Report ID:</strong> RPT-5d5963531009</div>
+                    <div style="font-size: 11px; font-family: monospace; color: #64748b;"><strong>Generated:</strong> 2026-10-05T13:52:46Z</div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Capture & System Metadata Summary -->
+        <div class="grid-3" style="margin-bottom: 16px;">
+            <div class="stat-card">
+                <div class="stat-label">Source Capture</div>
+                <div style="font-weight: 700; font-size: 13px; color: #0f172a; font-family: monospace; word-break: break-all;">lab-legacy-clients-offer.pcap</div>
+                <div style="font-size: 10px; color: #64748b; font-family: monospace;">SHA: 5d5963531009</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Overall Security Posture</div>
+                <div class="stat-value" style="color: #f97316;">HIGH_RISK</div>
+                <div style="font-size: 10px; color: #64748b;">0 Critical • 3 High • 2 Med</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Observed Scope</div>
+                <div class="stat-value">5 <span style="font-size: 12px; font-weight: 600; color: #64748b;">Session(s)</span></div>
+                <div style="font-size: 10px; color: #64748b;">5 Client Endpoint(s) Discovered</div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="section-title">1. Executive Summary</div>
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+            <h3 style="margin-top: 0; margin-bottom: 8px; font-size: 14px; font-weight: 700; color: #0f172a;">High-Risk Transport Security Issues Detected</h3>
+            <p style="margin: 6px 0; font-size: 13px; color: #1e293b; line-height: 1.5;">SecureMailScope analyzed 5 observed IMAP/SMTP transport session(s) from capture &#x27;lab-legacy-clients-offer.pcap&#x27;. 0 session(s) passed all assessed baseline checks, 2 required review, and 3 had critical transport risks.</p>
+            <p style="margin: 6px 0; font-size: 13px; color: #1e293b; line-height: 1.5;">Significant transport weaknesses or obsolete cryptographic protocols were identified. The primary drivers of this assessment were: deprecated TLS protocols (TLS 1.0/1.1) were negotiated; legacy or non-AEAD cipher suites were utilized.</p>
+            <p style="margin: 6px 0; font-size: 12px; color: #475569; font-style: italic;">AI-assisted anomaly prioritization evaluated 5 observed client profiles across 14 transport dimensions. 2 client(s) were prioritized for analyst attention based on relative statistical divergence.</p>
+        </div>
+
+        <!-- Prioritized Recommendations -->
+        <div class="section-title">2. Prioritized Administrator Recommendations</div>
+        
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 8px; background: #ffffff; page-break-inside: avoid;">
+            <div style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                    <span style="background-color: #ffedd5; color: #9a3412; border: 1px solid #f97316; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">HIGH</span>
+                    <span style="font-family: monospace; font-size: 11px; font-weight: 700; margin-left: 8px; color: #334155;">SMS-CERT-001</span>
+                    
+                </div>
+                <div style="font-weight: 600; font-size: 13px; color: #0f172a; margin-bottom: 2px;">Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.</div>
+                <div style="font-size: 12px; color: #64748b;">Self-issued leaf certificate; explicit trust required</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 8px; background: #ffffff; page-break-inside: avoid;">
+            <div style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                    <span style="background-color: #ffedd5; color: #9a3412; border: 1px solid #f97316; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">HIGH</span>
+                    <span style="font-family: monospace; font-size: 11px; font-weight: 700; margin-left: 8px; color: #334155;">SMS-TLSVER-001</span>
+                    <span style="font-family: monospace; font-size: 10px; background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; margin-left: 8px;">Simulator Bridge: SMS-POLICY-TLS12</span>
+                </div>
+                <div style="font-weight: 600; font-size: 13px; color: #0f172a; margin-bottom: 2px;">Disable TLS 1.0 on 198.51.100.25 and configure the mail server to require TLS 1.2 or TLS 1.3 as the minimum acceptable protocol version.</div>
+                <div style="font-size: 12px; color: #64748b;">Observed email session negotiated deprecated TLS 1.0 protocol, which is susceptible to known downgrade attacks and lacks modern authenticated encryption.</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 8px; background: #ffffff; page-break-inside: avoid;">
+            <div style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                    <span style="background-color: #ffedd5; color: #9a3412; border: 1px solid #f97316; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">HIGH</span>
+                    <span style="font-family: monospace; font-size: 11px; font-weight: 700; margin-left: 8px; color: #334155;">SMS-CIPHER-001</span>
+                    <span style="font-family: monospace; font-size: 10px; background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; margin-left: 8px;">Simulator Bridge: SMS-POLICY-NO-WEAK-CIPHER</span>
+                </div>
+                <div style="font-weight: 600; font-size: 13px; color: #0f172a; margin-bottom: 2px;">Disable obsolete cipher suites (RC4, 3DES, DES, EXPORT, NULL) on the mail server and require modern AEAD suites (e.g., AES-GCM or ChaCha20-Poly1305).</div>
+                <div style="font-size: 12px; color: #64748b;">The session negotiated weak or deprecated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA, which is vulnerable to cryptanalytic attacks.</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 8px; background: #ffffff; page-break-inside: avoid;">
+            <div style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</div>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                    <span style="background-color: #fef9c3; color: #854d0e; border: 1px solid #eab308; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">MEDIUM</span>
+                    <span style="font-family: monospace; font-size: 11px; font-weight: 700; margin-left: 8px; color: #334155;">SMS-PFS-001</span>
+                    
+                </div>
+                <div style="font-weight: 600; font-size: 13px; color: #0f172a; margin-bottom: 2px;">Configure the mail server to disable static RSA key exchange suites and prioritize ECDHE key exchange.</div>
+                <div style="font-size: 12px; color: #64748b;">The session negotiated a static RSA key exchange cipher suite lacking Perfect Forward Secrecy. Compromise of the server private key allows retroactive decryption of past sessions.</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 8px; background: #ffffff; page-break-inside: avoid;">
+            <div style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">5</div>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-size: 11px; font-weight: 700; margin-left: 8px; color: #334155;">SMS-TLSVER-002</span>
+                    
+                </div>
+                <div style="font-weight: 600; font-size: 13px; color: #0f172a; margin-bottom: 2px;">Maintain current TLS version baseline and monitor for future cryptographic standard updates.</div>
+                <div style="font-size: 12px; color: #64748b;">A currently accepted TLS protocol version (TLS 1.3) was observed.</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 8px; background: #ffffff; page-break-inside: avoid;">
+            <div style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">6</div>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-size: 11px; font-weight: 700; margin-left: 8px; color: #334155;">SMS-COVERAGE-001</span>
+                    
+                </div>
+                <div style="font-weight: 600; font-size: 13px; color: #0f172a; margin-bottom: 2px;">Capture network traffic from the initiation of the TCP session to include complete ClientHello and ServerHello handshake frames.</div>
+                <div style="font-size: 12px; color: #64748b;">TLS traffic was observed, but the available capture does not contain sufficient handshake evidence to determine the negotiated cipher suite.</div>
+            </div>
+        </div>
+        
+
+        <!-- Deterministic Security Findings -->
+        <div class="section-title">3. Deterministic Security Findings & Technical Evidence</div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-TLSVER-002</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Modern TLS Version (TLS 1.3)</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-0</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> A currently accepted TLS protocol version (TLS 1.3) was observed.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> TLS 1.3 conforms to modern transport security baselines and supports strong cryptographic primitives.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Maintain current TLS version baseline and monitor for future cryptographic standard updates.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] tls_version=TLS 1.3</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Server negotiated modern protocol version TLS 1.3.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 8446 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-PFS-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Forward Secrecy Supported</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-0</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> The TLS 1.3 ServerHello key_share indicates ephemeral key exchange; the cipher name alone does not establish this.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] has_pfs=True</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">TLS 1.3 ServerHello key_share observed: 29.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 8446 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-CERT-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Certificate assessment: limited visibility</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-0</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: LOW</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Encryption parameters alone do not establish the identity or trustworthiness of a mail server.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Collect the missing handshake or certificate evidence before deciding on a configuration change.</li><li>For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[COVERAGE_GAP] certificates=Not visible</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5280 • RFC 8446</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-TLSVER-002</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Modern TLS Version (TLS 1.2)</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: IMAP-STREAM-1</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> A currently accepted TLS protocol version (TLS 1.2) was observed.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> TLS 1.2 conforms to modern transport security baselines and supports strong cryptographic primitives.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Maintain current TLS version baseline and monitor for future cryptographic standard updates.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] tls_version=TLS 1.2</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Server negotiated modern protocol version TLS 1.2.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5246 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-PFS-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Forward Secrecy Supported</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: IMAP-STREAM-1</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> The negotiated cipher suite utilizes ephemeral key exchange (ECDHE/DHE), providing Perfect Forward Secrecy.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Ephemeral key exchange ensures that recorded encrypted traffic cannot be decrypted retroactively even if server private keys are compromised at a later date.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Continue enforcing ephemeral key exchanges (ECDHE) across all mail transport connections.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] has_pfs=True</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Negotiated cipher suite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 includes ephemeral key exchange.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 8446 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #ffedd5; color: #9a3412; border: 1px solid #f97316; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">HIGH</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-CERT-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Certificate assessment: issues detected</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: IMAP-STREAM-1</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> Self-issued leaf certificate; explicit trust required</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Encryption parameters alone do not establish the identity or trustworthiness of a mail server.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Check the reported certificate issue against the intended hostname and capture time.</li><li>Renew expired certificates, correct names and intermediates, and use approved keys and signature algorithms as applicable.</li><li>Supply an approved PEM trust bundle for offline path validation. Assess revocation using separately obtained evidence; this tool makes no revocation requests.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] certificates=[{&#x27;subject&#x27;: &#x27;CN=mail.sih.test&#x27;, &#x27;issuer&#x27;: &#x27;CN=mail.sih.test&#x27;, &#x27;serial_number&#x27;: &#x27;0x662f&#x27;, &#x27;sha256&#x27;: &#x27;c2bc1829b1e82254840b43cd7b09cadf343785ebec29eb3086c9686746dbfbdc&#x27;, &#x27;frame&#x27;: &#x27;21&#x27;, &#x27;not_before&#x27;: &#x27;2026-06-26T00:00:00+00:00&#x27;, &#x27;not_after&#x27;: &#x27;2027-10-04T00:00:00+00:00&#x27;, &#x27;assessed_at&#x27;: &#x27;2026-10-04T12:00:00.015000+00:00&#x27;, &#x27;public_key_algorithm&#x27;: &#x27;RSA&#x27;, &#x27;public_key_bits&#x27;: 2048, &#x27;signature_algorithm&#x27;: &#x27;1.2.840.113549.1.1.11&#x27;, &#x27;signature_hash&#x27;: &#x27;sha256&#x27;, &#x27;dns_names&#x27;: [&#x27;mail.sih.test&#x27;], &#x27;issues&#x27;: [&#x27;Self-issued leaf certificate; explicit trust required&#x27;], &#x27;chain_status&#x27;: &#x27;UNKNOWN&#x27;, &#x27;chain_detail&#x27;: &#x27;No explicit trust store supplied. Chain trust and revocation are not verified.&#x27;}]</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Self-issued leaf certificate; explicit trust required</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5280 • RFC 8446</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #ffedd5; color: #9a3412; border: 1px solid #f97316; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">HIGH</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-TLSVER-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Deprecated TLS Version (TLS 1.0)</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-2</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> Observed email session negotiated deprecated TLS 1.0 protocol, which is susceptible to known downgrade attacks and lacks modern authenticated encryption.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> TLS 1.0 is formally deprecated under RFC 8996 due to lack of modern cipher constructions, vulnerability to downgrade attacks, and security weaknesses.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Disable TLS 1.0 on 198.51.100.25 and configure the mail server to require TLS 1.2 or TLS 1.3 as the minimum acceptable protocol version.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Inventory ClientHello offers and upgrade clients that cannot offer TLS 1.2 or newer.</li><li>Set a TLS 1.2 minimum on the affected service after staging tests and a rollback plan.</li><li>Check both mandatory and opportunistic TLS settings for the intended service.</li></ol><p>Postfix 3.6+ (smtpd) — Review and test before applying</p><p>Example parameter values for authenticated submission only. Translate to per-service master.cf overrides where appropriate. Requires a working TLS certificate/key. Do not apply globally to a public port-25 relay.</p><pre style="white-space:pre-wrap">smtpd_tls_security_level = encrypt
+smtpd_tls_mandatory_protocols = &gt;=TLSv1.2</pre></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] tls_version=TLS 1.0</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Server selected deprecated protocol version TLS 1.0.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 8996 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #fef9c3; color: #854d0e; border: 1px solid #eab308; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">MEDIUM</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-PFS-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Static Key Exchange Without Forward Secrecy</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-2</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> The session negotiated a static RSA key exchange cipher suite lacking Perfect Forward Secrecy. Compromise of the server private key allows retroactive decryption of past sessions.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Static key exchange allows an adversary who captures encrypted traffic to decrypt it retroactively if they acquire the server&#x27;s private key in the future.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Configure the mail server to disable static RSA key exchange suites and prioritize ECDHE key exchange.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Prefer ephemeral ECDHE/DHE key exchange where supported; remove static RSA exchange after compatibility testing.</li><li>For TLS 1.3 inspect the selected key-share group; the cipher name alone does not prove forward secrecy.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] has_pfs=False</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Negotiated cipher suite TLS_RSA_WITH_AES_128_CBC_SHA uses static RSA key exchange without ephemeral parameters.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 8446 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-CERT-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Certificate assessment: limited visibility</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-2</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: LOW</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Encryption parameters alone do not establish the identity or trustworthiness of a mail server.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Collect the missing handshake or certificate evidence before deciding on a configuration change.</li><li>For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[COVERAGE_GAP] certificates=Not visible</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5280 • RFC 8446</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-TLSVER-002</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Modern TLS Version (TLS 1.2)</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-3</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> A currently accepted TLS protocol version (TLS 1.2) was observed.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> TLS 1.2 conforms to modern transport security baselines and supports strong cryptographic primitives.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Maintain current TLS version baseline and monitor for future cryptographic standard updates.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>No change is required by this observed check. Maintain the baseline and re-check a fresh capture after configuration changes.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] tls_version=TLS 1.2</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Server negotiated modern protocol version TLS 1.2.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5246 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #ffedd5; color: #9a3412; border: 1px solid #f97316; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">HIGH</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-CIPHER-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Weak / Deprecated Cipher Suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-3</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> The session negotiated weak or deprecated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA, which is vulnerable to cryptanalytic attacks.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> The selected cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA) utilizes obsolete algorithms (such as 64-bit block ciphers like 3DES vulnerable to Sweet32, or stream ciphers like RC4) susceptible to practical collision or plaintext recovery attacks.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Disable obsolete cipher suites (RC4, 3DES, DES, EXPORT, NULL) on the mail server and require modern AEAD suites (e.g., AES-GCM or ChaCha20-Poly1305).</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Upgrade the affected mail server and client TLS libraries.</li><li>Remove the identified weak suites from that service using its version-specific cipher configuration; prefer supported AEAD suites.</li><li>Test client compatibility and verify the newly selected cipher in a fresh capture.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] cipher_suite=TLS_RSA_WITH_3DES_EDE_CBC_SHA</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Negotiated cipher suite identifier: TLS_RSA_WITH_3DES_EDE_CBC_SHA.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 7465 • RFC 7540 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #fef9c3; color: #854d0e; border: 1px solid #eab308; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">MEDIUM</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-PFS-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Static Key Exchange Without Forward Secrecy</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-3</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: HIGH</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> The session negotiated a static RSA key exchange cipher suite lacking Perfect Forward Secrecy. Compromise of the server private key allows retroactive decryption of past sessions.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Static key exchange allows an adversary who captures encrypted traffic to decrypt it retroactively if they acquire the server&#x27;s private key in the future.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Configure the mail server to disable static RSA key exchange suites and prioritize ECDHE key exchange.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Prefer ephemeral ECDHE/DHE key exchange where supported; remove static RSA exchange after compatibility testing.</li><li>For TLS 1.3 inspect the selected key-share group; the cipher name alone does not prove forward secrecy.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[OBSERVED] has_pfs=False</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">Negotiated cipher suite TLS_RSA_WITH_3DES_EDE_CBC_SHA uses static RSA key exchange without ephemeral parameters.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 8446 • NIST SP 800-52 Rev. 2</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-CERT-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Certificate assessment: limited visibility</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-3</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: LOW</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Encryption parameters alone do not establish the identity or trustworthiness of a mail server.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Collect the missing handshake or certificate evidence before deciding on a configuration change.</li><li>For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[COVERAGE_GAP] certificates=Not visible</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5280 • RFC 8446</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-COVERAGE-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Insufficient Cryptographic Evidence</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-4</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: LOW</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> TLS traffic was observed, but the available capture does not contain sufficient handshake evidence to determine the negotiated cipher suite.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Without complete ServerHello handshake frames in the capture window, cryptographic cipher strength and forward secrecy cannot be conclusively verified.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Capture network traffic from the initiation of the TCP session to include complete ClientHello and ServerHello handshake frames.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Collect the missing handshake or certificate evidence before deciding on a configuration change.</li><li>For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[COVERAGE_GAP] cipher_suite=UNKNOWN</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">TLS traffic was observed, but the available capture does not contain sufficient handshake evidence to determine the negotiated cipher suite.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> SecureMailScope Evidence Guidelines</div>
+        </div>
+        
+        <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #ffffff; page-break-inside: avoid;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                    <span style="background-color: #f1f5f9; color: #334155; border: 1px solid #64748b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-family: monospace; text-transform: uppercase;">INFO</span>
+                    <span style="font-family: monospace; font-weight: 700; font-size: 13px; margin-left: 8px; color: #0f172a;">SMS-CERT-001</span>
+                    <strong style="font-size: 14px; margin-left: 8px; color: #0f172a;">Certificate assessment: limited visibility</strong>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace; margin-left: 8px;">Session: SMTP-STREAM-4</span>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: #475569; font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Confidence: LOW</span>
+            </div>
+            <p style="margin: 8px 0 4px 0; font-size: 13px; color: #1e293b; line-height: 1.5;"><strong>Plain Explanation:</strong> No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #475569; line-height: 1.4;"><strong>Technical Impact:</strong> Encryption parameters alone do not establish the identity or trustworthiness of a mail server.</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #0369a1; line-height: 1.4;"><strong>Remediation:</strong> Renew invalid certificates, use modern keys, and supply an approved PEM trust store via SMS_TRUST_STORE for offline path validation. Check revocation separately.</p>
+            <div><strong>[RULE] Recommended fix</strong><ol><li>Collect the missing handshake or certificate evidence before deciding on a configuration change.</li><li>For encrypted TLS 1.3 certificates, obtain approved endpoint certificate evidence separately. Do not interpret missing evidence as a failure.</li></ol></div>
+            
+            <div style="margin-top: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Structured Evidence Items:</div>
+                <table style="width: 100%; border-collapse: collapse;"><tr><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 11px;">[COVERAGE_GAP] certificates=Not visible</td><td style="padding: 4px 8px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #475569;">No server certificate is visible. TLS 1.3 encrypts certificates; a partial or resumed handshake may also omit them.</td></tr></table>
+            </div>
+            
+            <div style="margin-top: 6px; font-size: 11px; color: #64748b; font-family: monospace;"><strong>Standards References:</strong> RFC 5280 • RFC 8446</div>
+        </div>
+        <div style="padding:12px;border:1px solid #ddd;margin-bottom:12px"><strong>INFO / [OBSERVED] Classical key exchange observed</strong><p>SMTP-STREAM-0 / x25519</p><p>May be exposed to harvest-now-decrypt-later; this is an observation, not a vulnerability.</p></div><div style="padding:12px;border:1px solid #ddd;margin-bottom:12px"><strong>INFO / [COVERAGE_GAP] Quantum readiness: UNKNOWN</strong><p>IMAP-STREAM-1 / UNKNOWN</p><p>A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced.</p></div><div style="padding:12px;border:1px solid #ddd;margin-bottom:12px"><strong>INFO / [COVERAGE_GAP] Quantum readiness: UNKNOWN</strong><p>SMTP-STREAM-2 / UNKNOWN</p><p>A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced.</p></div><div style="padding:12px;border:1px solid #ddd;margin-bottom:12px"><strong>INFO / [COVERAGE_GAP] Quantum readiness: UNKNOWN</strong><p>SMTP-STREAM-3 / UNKNOWN</p><p>A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced.</p></div><div style="padding:12px;border:1px solid #ddd;margin-bottom:12px"><strong>INFO / [COVERAGE_GAP] Quantum readiness: UNKNOWN</strong><p>SMTP-STREAM-4 / UNKNOWN</p><p>A recognized TLS 1.3 ServerHello key-share group is not visible. No readiness conclusion or failing check is produced.</p></div>
+
+        <!-- Security Replay Journey -->
+        <div class="section-title">4. Security Session Replay Summary</div>
+        
+        <table style="width: 100%; border-collapse: collapse; margin-top: 8px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden;">
+            <thead>
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; text-align: left; font-size: 11px; text-transform: uppercase; color: #64748b;">
+                    <th style="padding: 8px 10px;">Session ID</th>
+                    <th style="padding: 8px 10px;">Protocol</th>
+                    <th style="padding: 8px 10px;">Endpoints</th>
+                    <th style="padding: 8px 10px; text-align: center;">Events</th>
+                    <th style="padding: 8px 10px;">Critical Moment</th>
+                </tr>
+            </thead>
+            <tbody><tr><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 12px; font-weight: 600;">SMTP-STREAM-0</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px;">SMTP</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-family: monospace;">192.0.2.21:49021 → 198.51.100.25:465</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; text-align: center;">3</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #b91c1c; font-weight: 600;">None</td></tr><tr><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 12px; font-weight: 600;">IMAP-STREAM-1</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px;">IMAP</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-family: monospace;">192.0.2.22:49022 → 198.51.100.25:993</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; text-align: center;">3</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #b91c1c; font-weight: 600;">None</td></tr><tr><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 12px; font-weight: 600;">SMTP-STREAM-2</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px;">SMTP</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-family: monospace;">192.0.2.23:49023 → 198.51.100.25:465</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; text-align: center;">3</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #b91c1c; font-weight: 600;">ServerHello selection (TLS 1.0)</td></tr><tr><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 12px; font-weight: 600;">SMTP-STREAM-3</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px;">SMTP</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-family: monospace;">192.0.2.24:49024 → 198.51.100.25:465</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; text-align: center;">3</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #b91c1c; font-weight: 600;">ServerHello selection (TLS 1.2)</td></tr><tr><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-family: monospace; font-size: 12px; font-weight: 600;">SMTP-STREAM-4</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px;">SMTP</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-family: monospace;">192.0.2.25:49025 → 198.51.100.25:465</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; text-align: center;">1</td><td style="padding: 6px 10px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #b91c1c; font-weight: 600;">None</td></tr></tbody>
+        </table>
+        
+
+        <!-- Hardening Impact & Client Discovery -->
+        <div class="section-title">5. Hardening Impact & Observed Client Inventory</div>
+        <div class="grid-2">
+            <div class="stat-card">
+                <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: #0f172a; margin-bottom: 6px;">Passive Hardening Simulation</div>
+                <p style="font-size: 12px; color: #475569; margin: 4px 0;">Passive hardening simulation evaluated 5 observed client(s) against 3 cryptographic policy baseline(s).</p>
+                <div style="margin-top: 8px; font-family: monospace; font-size: 11px;">
+                    <strong>Simulated Compatibility:</strong>
+                    <span style="color: #10b981; font-weight: 700; margin-left: 6px;">2 Compatible</span> •
+                    <span style="color: #ef4444; font-weight: 700;">2 Would Break</span> •
+                    <span style="color: #64748b; font-weight: 700;">1 Unknown</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: #0f172a; margin-bottom: 6px;">Client Discovery & AI Outlier Status</div>
+                <div style="font-size: 12px; color: #334155; margin-bottom: 4px;">
+                    <strong>Inventory:</strong> 5 total (2 Modern, 2 Legacy, 0 Cleartext)
+                </div>
+                <div style="font-size: 12px; color: #475569;">
+                    <strong>AI Engine:</strong> <span style="font-family: monospace; font-weight: 600;">ANALYZED</span> (Evaluated 5 observed client profile(s) across 14 transport dimensions. 2 client(s) surfaced for prioritized analyst review based on statistical behavioral divergence.)
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence Integrity & Merkle Evidence Root -->
+        <div class="section-title">6. Cryptographic Evidence Integrity & Tamper Manifest</div>
+        <div class="integrity-box">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="font-weight: 700; color: #0f172a; font-size: 12px;">INTEGRITY MANIFEST: VERIFIED</span>
+                <span style="color: #0284c7; font-weight: 700;">SHA-256</span>
+            </div>
+            <div><strong>Capture SHA-256:</strong> 5d5963531009bae8b390307518574c806e5663da96f02bec596ece77daf7b614</div>
+            <div><strong>Findings Digest:</strong> 180c6fd80ca30db1d1a946bcf7cc503f460201aa0b3aafc8a1efbb6370a1df6d</div>
+            <div><strong>Replay Digest:</strong> 18ac7a67b9c626ae0a9d19e9aaafbdfa2a405ac16b16d802a172b50942321a39</div>
+            <div><strong>Discovery Digest:</strong> fe4b2331a2f4e40b05117a3422e66517ef70d384e838f1093074013910534161</div>
+            <div><strong>Simulation Digest:</strong> 92688969d90c2ab7e8246d9d1fc660098f17a25c6c233f306aadd492124cb32b</div>
+            <div style="margin-top: 4px; padding-top: 4px; border-top: 1px dashed #cbd5e1;">
+                <strong>Merkle Evidence Root:</strong> d1f8a416540ce87fc9e7d869fbd8ffe0887d631bf7e537e88ae9d92396bb17b9
+            </div>
+            <div><strong>Report Canonical Digest:</strong> e92e1a1cc9db2122c1affafb20f8dac1de9a03f3982626d79be989ea593a617c</div>
+            <div style="margin-top: 6px; color: #059669; font-weight: 700; font-size: 11px;">
+                ✓ Evidence integrity verified against the report manifest.
+            </div>
+        </div>
+
+        <!-- Limitations & Privacy Statement -->
+        <div class="section-title">7. Authoritative Limitations & Scope</div>
+        <ul style="padding-left: 20px; margin: 8px 0;"><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">TLS selections come from ServerHello; observing ServerHello does not prove handshake completion or successful delivery.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">TLS 1.3 certificates are encrypted. Chain validation requires visible certificates, observed SNI, capture time, and SMS_TRUST_STORE. Revocation is not checked.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">Capture SHA-256 and report hashes support integrity comparison, not source authentication or digital signatures.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">Analysis reflects strictly traffic captured and visible within the submitted packet capture window.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">Passive network observation cannot evaluate email clients or cryptographic capabilities absent from the capture.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">Incomplete TCP streams or truncated TLS handshakes in capture boundaries may limit full capability assessment.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">AI-assisted anomaly prioritization is relative strictly to the observed client population in this capture.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">AI anomaly engine abstains from statistical ranking when the comparison population is insufficient (minimum 5 observed clients).</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">Encrypted application-layer email payload (message text, headers, attachments) is not decrypted.</li><li style="margin-bottom: 4px; font-size: 12px; color: #475569; line-height: 1.4;">Hardening Impact Simulation results reflect passive capability evidence only and do not modify live servers.</li></ul>
+
+        <div class="section-title">8. Privacy & Data Handling</div>
+        <div style="background-color: #f1f5f9; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #334155; line-height: 1.5;">
+            Capture files can contain sensitive payloads and are processed locally by TShark. Temporary uploaded files are removed after analysis. Command arguments are discarded at the extraction boundary; generated investigations retain transport and certificate metadata rather than message bodies or authentication secrets. Reports may contain IP addresses, hostnames, and certificate identities. No network revocation lookup or cloud AI is used.
+        </div>
+
+        <!-- Report Footer -->
+        <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 11px; font-family: monospace; color: #94a3b8; display: flex; justify-content: space-between; align-items: center;">
+            <span>SecureMailScope v1.0.0 • SIH26159</span>
+            <span>Offline-First Evidence-Backed Transport Security</span>
+        </div>
+    </div>
+</body>
+</html>

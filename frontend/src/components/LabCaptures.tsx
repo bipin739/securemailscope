@@ -1,0 +1,14 @@
+import {useEffect,useState} from 'react';
+import {FlaskConical, Download, ArrowRight, Loader2} from 'lucide-react';
+import {Investigation} from '../types';
+import {analyzeCapture} from '../services/api';
+const base=import.meta.env.VITE_API_BASE_URL||'/api';
+interface Sample{filename:string;description:string;sha256:string}
+export function LabCaptures({onLoaded}:{onLoaded:(inv:Investigation)=>void}){
+ const [samples,setSamples]=useState<Sample[]>([]);const [busy,setBusy]=useState('');const [error,setError]=useState('');
+ useEffect(()=>{fetch(`${base}/samples`).then(r=>{if(!r.ok)throw Error('Sample catalog unavailable');return r.json()}).then(setSamples).catch(e=>setError(e.message))},[]);
+ async function run(s:Sample){setBusy(s.filename);setError('');try{const response=await fetch(`${base}/samples/${encodeURIComponent(s.filename)}`);if(!response.ok)throw Error('Could not read lab capture');const file=new File([await response.blob()],s.filename,{type:'application/octet-stream'});onLoaded(await analyzeCapture(file))}catch(e){setError(e instanceof Error?e.message:'Analysis failed')}finally{setBusy('')}}
+ const [selection,setSelection]=useState('lab-mixed-fleet.pcap');
+ const selected=samples.find(s=>s.filename===selection)||samples[0];
+ return <section className="panel p-6 max-w-4xl mx-auto mb-6"><div className="flex gap-3"><FlaskConical size={23} className="text-emerald-300 shrink-0"/><div><h2 className="text-base font-semibold">Try the reproducible capture lab</h2><p className="text-xs text-slate-400 mt-2 leading-relaxed">Synthetic traffic, real packet analysis. These files run through the same TShark pipeline as your uploads. Download the PCAP to independently inspect the evidence in Wireshark.</p></div></div>{samples.length>0&&<div className="mt-5 space-y-3"><select aria-label="Lab capture scenario" value={selection} onChange={e=>setSelection(e.target.value)} className="w-full rounded-lg border border-slate-700 bg-slate-950 p-3 text-xs">{samples.map(s=><option key={s.filename} value={s.filename}>{s.filename.replace('lab-','').replace(/\.pcap(?:ng)?$/,'').replace(/-/g,' ')}</option>)}</select><p className="text-xs text-slate-400 leading-relaxed">{selected?.description}</p><div className="flex flex-wrap gap-3 pt-2"><button className="button-primary" disabled={!!busy} onClick={()=>selected&&run(selected)}>{busy?<Loader2 size={16} className="animate-spin"/>:<ArrowRight size={16}/>} {busy?'Analyzing capture…':'Analyze lab capture'}</button><a className="button-secondary" href={`${base}/samples/${encodeURIComponent(selected?.filename||'')}`} download><Download size={15}/> Download PCAP</a><span className="self-center text-[10px] text-slate-500">{samples.length} documented test scenarios</span></div></div>}{error&&<p role="alert" className="text-sm text-rose-300 mt-4">{error}</p>}</section>
+}
